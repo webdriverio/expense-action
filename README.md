@@ -80,7 +80,7 @@ jobs:
               with:
                   node-version: 20.x
             - name: Run Expense Flow
-              uses: webdriverio/expense-action
+              uses: webdriverio/expense-action@v0.0.7
               with:
                   prNumber: ${{ github.event.inputs.prNumber }}
                   amount: ${{ github.event.inputs.amount }}
@@ -89,4 +89,5 @@ jobs:
                   GH_TOKEN: ${{ secrets.WDIO_BOT_GITHUB_TOKEN }}
 ```
 
-Then make sure to add `wdio-bot` as project admin so the workflow can properly label the issue.
+Then make sure to add `wdio-bot` as project admin so the workflow can properly
+label the issue.
