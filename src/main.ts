@@ -52,8 +52,17 @@ export async function expense(): Promise<void> {
         )
     }
 
-    const owner = core.getInput('org', { required: true })
-    const repo = core.getInput('repo', { required: true })
+    /**
+     * get PR information from environment variables
+     */
+    const actionRepo = process.env.GITHUB_ACTION_REPOSITORY
+    if (!actionRepo) {
+        throw new Error(
+            'Could not get repository information from environment, make sure `GITHUB_ACTION_REPOSITORY` is defined in the environment'
+        )
+    }
+
+    const [owner, repo] = actionRepo.split('/')
     const prNumber = parseInt(core.getInput('prNumber', { required: true }), 10)
     const expenseAmount = parseInt(
         core.getInput('amount', { required: true }),

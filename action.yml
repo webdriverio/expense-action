@@ -9,14 +9,6 @@ branding:
 
 # Define your inputs here.
 inputs:
-  org:
-    description: 'Organization where contribution was submitted'
-    required: true
-    default: 'webdriverio'
-  repo:
-    description: 'Repository where contribution was submitted'
-    required: true
-    default: 'webdriverio'
   prNumber:
     description: 'Pull Request number'
     required: true
