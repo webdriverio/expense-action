@@ -39,8 +39,7 @@ export async function expense(): Promise<void> {
      */
     if (!process.env.GH_TOKEN) {
         throw new Error(
-            'Please export a "GH_TOKEN" access token to generate the changelog.\n' +
-                'See also https://github.com/webdriverio/webdriverio/blob/main/CONTRIBUTING.md#release-new-version'
+            'Please export a "GH_TOKEN" access token into the environment.'
         )
     }
 
