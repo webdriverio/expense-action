@@ -1,23 +1,34 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'WebdriverIO Expense Action'
+description: 'A GitHub Action that enables WebdriverIO TSC members to grant expense requests for contributed PRs to the project.'
+author: 'Christian Bromann <mail@bromann.dev>'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'dollar-sign'
+  color: 'orange'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  org:
+    description: 'Organization where contribution was submitted'
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+    default: 'webdriverio'
+  repo:
+    description: 'Repository where contribution was submitted'
+    required: true
+    default: 'webdriverio'
+  prNumber:
+    description: 'Pull Request number'
+    required: true
+  amount:
+    description: 'Amount to be granted'
+    required: true
+  githubToken:
+    description: 'GitHub token'
+    required: true
+  resendAPIKey:
+    description: 'Resend API key'
+    required: true
 
 runs:
   using: node20
