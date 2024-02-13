@@ -112,22 +112,24 @@ export async function expense(): Promise<void> {
         throw new Error(`Could not send email: ${data.error}`)
     }
 
+    const issueOptions = {
+        owner,
+        repo,
+        issue_number: prNumber
+    } as const
+
     /**
      * Add a comment to the PR that an expense email has been sent out
      */
     console.log(`Adding comment to PR #${prNumber}, letting user know...`)
     await api.issues.createComment({
-        owner,
-        repo,
-        issue_number: prNumber,
+        ...issueOptions,
         body: `Hey __${pr.data.user.login}__ 👋\n\n${CONFIRMATION_COMMENT}`
     })
 
     console.log(`Adding expense label to PR #${prNumber}...`)
     await api.issues.addLabels({
-        owner,
-        repo,
-        issue_number: prNumber,
+        ...issueOptions,
         labels: [`Expensable $${expenseAmount} 💸`]
     })
 }
