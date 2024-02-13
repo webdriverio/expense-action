@@ -55,10 +55,10 @@ export async function expense(): Promise<void> {
     /**
      * get PR information from environment variables
      */
-    const actionRepo = process.env.GITHUB_ACTION_REPOSITORY
+    const actionRepo = process.env.GITHUB_REPOSITORY
     if (!actionRepo) {
         throw new Error(
-            'Could not get repository information from environment, make sure `GITHUB_ACTION_REPOSITORY` is defined in the environment'
+            'Could not get repository information from environment, make sure `GITHUB_REPOSITORY` is defined in the environment'
         )
     }
 
