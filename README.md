@@ -64,7 +64,7 @@ jobs:
                   team: technical-steering-committee
                   organisation: webdriverio
               env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.WDIO_BOT_GITHUB_TOKEN }}
     expense:
         permissions:
             contents: write
@@ -90,3 +90,5 @@ jobs:
                   RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
                   GH_TOKEN: ${{ secrets.WDIO_BOT_GITHUB_TOKEN }}
 ```
+
+Then make sure to add `wdio-bot` as project admin so the workflow can properly label the issue.
