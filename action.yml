@@ -23,12 +23,6 @@ inputs:
   amount:
     description: 'Amount to be granted'
     required: true
-  githubToken:
-    description: 'GitHub token'
-    required: true
-  resendAPIKey:
-    description: 'Resend API key'
-    required: true
 
 runs:
   using: node20

@@ -6,7 +6,6 @@
   "license": "MIT",
   "homepage": "https://github.com/webdriverio/expense-action",
   "private": true,
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/webdriverio/expense-action.git"

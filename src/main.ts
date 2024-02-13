@@ -4,13 +4,34 @@ import { Resend } from 'resend'
 import { Octokit } from '@octokit/rest'
 
 import Email from './mail.js'
-import { CONFIRMATION_COMMENT, FROM as from, BCC as bcc } from './constants.js'
+import {
+    CONFIRMATION_COMMENT,
+    CONFIRMATION_MESSAGE,
+    FROM as from,
+    BCC as bcc
+} from './constants.js'
 
 /**
  * create a authentication key for contributor
  */
 const randomString = crypto.randomUUID()
 const secretKey = crypto.createHash('sha256').update(randomString).digest('hex')
+
+/**
+ * The main function for the action.
+ * @returns {Promise<void>} Resolves when the action is complete.
+ */
+export async function run(): Promise<void> {
+    try {
+        await expense()
+        console.log(CONFIRMATION_MESSAGE)
+    } catch (error) {
+        // Fail the workflow run if an error occurs
+        if (error instanceof Error) {
+            core.setFailed(error.message)
+        }
+    }
+}
 
 export async function expense(): Promise<void> {
     /**
