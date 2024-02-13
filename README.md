@@ -82,8 +82,6 @@ jobs:
             - name: Run Expense Flow
               uses: webdriverio/expense-action
               with:
-                  org: webdriverio
-                  repo: webdriverio
                   prNumber: ${{ github.event.inputs.prNumber }}
                   amount: ${{ github.event.inputs.amount }}
               env:

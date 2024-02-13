@@ -21,6 +21,8 @@ import * as React from 'react'
 interface ExpenseEmailProps {
     username: string
     prNumber: number
+    owner: string
+    repo: string
     prURL: string
     expenseAmount: number
     secretKey: string
@@ -30,6 +32,8 @@ export const ExpenseEmail = ({
     username,
     prNumber,
     prURL,
+    owner,
+    repo,
     expenseAmount,
     secretKey
 }: ExpenseEmailProps): React.JSX.Element => {
@@ -69,7 +73,9 @@ export const ExpenseEmail = ({
                             <Link
                                 href={prURL}
                                 className="text-blue-600 no-underline">
-                                <CodeInline>#{prNumber}</CodeInline>
+                                <CodeInline>
+                                    {owner}/{repo}#{prNumber}
+                                </CodeInline>
                             </Link>
                             . This project thrives on the invaluable involvement
                             of our community and we would like to give back to

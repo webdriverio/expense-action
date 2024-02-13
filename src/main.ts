@@ -68,6 +68,10 @@ export async function expense(): Promise<void> {
         core.getInput('amount', { required: true }),
         10
     )
+    console.log(
+        `Expensing PR ${owner}/${repo}#${prNumber} for $${expenseAmount}`
+    )
+
     const prURL = `https://github.com/${owner}/${repo}/pull/${prNumber}`
 
     const api = new Octokit({ auth: process.env.GH_TOKEN })
@@ -110,6 +114,8 @@ export async function expense(): Promise<void> {
         react: Email({
             username: pr.data.user.login,
             prNumber,
+            owner,
+            repo,
             prURL,
             expenseAmount,
             secretKey
