@@ -64,7 +64,7 @@ jobs:
               with:
                   node-version: 20.x
             - name: Run Expense Flow
-              uses: webdriverio/expense-action
+              uses: ../..
               with:
                   org: webdriverio
                   repo: expense-action
