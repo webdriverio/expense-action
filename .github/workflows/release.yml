@@ -3,6 +3,9 @@ name: Release Action
 on:
     workflow_dispatch:
         inputs: {}
+    push:
+        branches:
+            - main
 
 permissions:
     contents: write
@@ -12,8 +15,9 @@ jobs:
     build:
         uses: ./.github/workflows/ci.yml
 
-    release:
+    release-pr:
         runs-on: ubuntu-latest
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         needs: [build]
         steps:
             - uses: google-github-actions/release-please-action@v4
@@ -22,10 +26,19 @@ jobs:
                 config-file: .github/release/config.json
                 manifest-file: .github/release/manifest.json
 
+    release:
+        runs-on: ubuntu-latest
+        if: '!contains(github.event.head_commit.message, "chore(main): release expense-action")'
+        needs: [build]
+        steps:
+            - uses: google-github-actions/release-please-action@v4
+              id: release
+              with:
+                config-file: .github/release/config.json
+                manifest-file: .github/release/manifest.json
             - uses: actions/checkout@v3
               with:
                 fetch-depth: 0
-                ref: 'latest'
               if: ${{ steps.release.outputs.release_created }}
 
             - uses: actions/download-artifact@v3
