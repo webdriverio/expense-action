@@ -81,7 +81,7 @@ jobs:
             id-token: write
         steps:
             - name: Run Expense Flow
-              uses: webdriverio/expense-action@v0.0.7
+              uses: webdriverio/expense-action@v1
               with:
                   prNumber: ${{ github.event.inputs.prNumber }}
                   amount: ${{ github.event.inputs.amount }}
