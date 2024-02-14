@@ -3,6 +3,7 @@ import { setFailed } from '@actions/core'
 // @ts-expect-error mock feature
 import { send } from 'resend'
 // @ts-expect-error mock feature
+// eslint-disable-next-line import/named
 import { addLabels, createComment, get } from '@octokit/rest'
 
 import { run, expense } from '../src/main.js'
@@ -17,28 +18,31 @@ vi.mock('@actions/core', () => ({
 }))
 
 vi.mock('resend', () => {
-    const send = vi.fn(() => ({ error: null }))
+    const sendMock = vi.fn(() => ({ error: null }))
     return {
-        send,
+        send: sendMock,
         Resend: class {
-            emails = { send }
+            emails = { send: sendMock }
         }
     }
 })
 
 vi.mock('@octokit/rest', async () => {
-    const { COMMITS, PULLS } = await import('./__fixtures__/gh.js', {
-        assert: { type: 'json' }
-    })
+    const { COMMITS, PULLS: PULL_IMPORT } = await import(
+        './__fixtures__/gh.js',
+        {
+            assert: { type: 'json' }
+        }
+    )
     const listCommits = vi.fn().mockReturnValue({ data: COMMITS })
-    const get = vi.fn().mockReturnValue({ data: PULLS })
-    const createComment = vi.fn()
-    const addLabels = vi.fn()
+    const getMock = vi.fn().mockReturnValue({ data: PULL_IMPORT })
+    const createCommentMock = vi.fn()
+    const addLabelsMock = vi.fn()
     return {
         listCommits,
-        createComment,
-        get,
-        addLabels,
+        createComment: createCommentMock,
+        get: getMock,
+        addLabels: addLabelsMock,
         Octokit: class {
             pulls = { listCommits, get }
             issues = { createComment, addLabels }
@@ -59,15 +63,15 @@ describe('run', () => {
 
 describe('expense', () => {
     it('should throw if environment variables are not set', async () => {
-        await expect(() => expense()).rejects.toThrow(
+        await expect(async () => expense()).rejects.toThrow(
             'Please export a "GH_TOKEN"'
         )
-        await expect(() =>
+        await expect(async () =>
             expense({
                 githubToken: 'token'
             } as any)
         ).rejects.toThrow('Please export a "RESEND_API_KEY"')
-        await expect(() =>
+        await expect(async () =>
             expense({
                 githubToken: 'token',
                 resendAPIKey: 'token'
@@ -161,7 +165,7 @@ describe('expense', () => {
             data: { ...PULLS, merge_commit_sha: undefined }
         })
         vi.mocked(get).mockResolvedValue(pulls)
-        await expect(() =>
+        await expect(async () =>
             expense({
                 githubToken: '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',
                 resendAPIKey: 'token',
@@ -175,7 +179,7 @@ describe('expense', () => {
             data: { ...PULLS, labels: [{ name: 'Expensable $123 💸' }] }
         })
         vi.mocked(get).mockResolvedValue(pulls)
-        await expect(() =>
+        await expect(async () =>
             expense({
                 githubToken: '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',
                 resendAPIKey: 'token',

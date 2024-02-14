@@ -28,7 +28,7 @@
     "bundle": "npm run format:write && npm run package",
     "format:write": "prettier --write **/*.{ts,tsx}",
     "format:check": "prettier --check **/*.{ts,tsx}",
-    "lint": "npx eslint . -c ./.github/linters/.eslintrc.yml",
+    "lint": "eslint . -c ./.eslintrc.yml",
     "package": "ncc build src/index.ts --license licenses.txt",
     "package:watch": "npm run package -- --watch",
     "test": "vitest --run",

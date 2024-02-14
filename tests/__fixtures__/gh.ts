@@ -1,13 +1,15 @@
 export const COMMITS = [
     {
         sha: 'e99d2954daf6f9fb948ddf38a89dc141c04ed5c4',
-        node_id: 'C_kwDOACMMitoAKGU5OWQyOTU0ZGFmNmY5ZmI5NDhkZGYzOGE4OWRjMTQxYzA0ZWQ1YzQ',
+        node_id:
+            'C_kwDOACMMitoAKGU5OWQyOTU0ZGFmNmY5ZmI5NDhkZGYzOGE4OWRjMTQxYzA0ZWQ1YzQ',
         commit: {
             author: {
                 email: 'foo@bar.com'
             },
             committer: [],
-            message: 'Bump dotenv from 16.3.2 to 16.4.1\n' +
+            message:
+                'Bump dotenv from 16.3.2 to 16.4.1\n' +
                 '\n' +
                 'Bumps [dotenv](https://github.com/motdotla/dotenv) from 16.3.2 to 16.4.1.\n' +
                 '- [Changelog](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md)\n' +
@@ -27,8 +29,10 @@ export const COMMITS = [
             verification: []
         },
         url: 'https://api.github.com/repos/webdriverio/webdriverio/commits/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4',
-        html_url: 'https://github.com/webdriverio/webdriverio/commit/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4',
-        comments_url: 'https://api.github.com/repos/webdriverio/webdriverio/commits/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4/comments',
+        html_url:
+            'https://github.com/webdriverio/webdriverio/commit/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4',
+        comments_url:
+            'https://api.github.com/repos/webdriverio/webdriverio/commits/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4/comments',
         author: {
             login: 'dependabot[bot]',
             id: 49699333,
@@ -37,15 +41,23 @@ export const COMMITS = [
             gravatar_id: '',
             url: 'https://api.github.com/users/dependabot%5Bbot%5D',
             html_url: 'https://github.com/apps/dependabot',
-            followers_url: 'https://api.github.com/users/dependabot%5Bbot%5D/followers',
-            following_url: 'https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}',
-            gists_url: 'https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}',
-            starred_url: 'https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}',
-            subscriptions_url: 'https://api.github.com/users/dependabot%5Bbot%5D/subscriptions',
-            organizations_url: 'https://api.github.com/users/dependabot%5Bbot%5D/orgs',
+            followers_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/followers',
+            following_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}',
+            gists_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}',
+            starred_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}',
+            subscriptions_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/subscriptions',
+            organizations_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/orgs',
             repos_url: 'https://api.github.com/users/dependabot%5Bbot%5D/repos',
-            events_url: 'https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}',
-            received_events_url: 'https://api.github.com/users/dependabot%5Bbot%5D/received_events',
+            events_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}',
+            received_events_url:
+                'https://api.github.com/users/dependabot%5Bbot%5D/received_events',
             type: 'Bot',
             site_admin: false
         },
@@ -58,14 +70,19 @@ export const COMMITS = [
             url: 'https://api.github.com/users/web-flow',
             html_url: 'https://github.com/web-flow',
             followers_url: 'https://api.github.com/users/web-flow/followers',
-            following_url: 'https://api.github.com/users/web-flow/following{/other_user}',
+            following_url:
+                'https://api.github.com/users/web-flow/following{/other_user}',
             gists_url: 'https://api.github.com/users/web-flow/gists{/gist_id}',
-            starred_url: 'https://api.github.com/users/web-flow/starred{/owner}{/repo}',
-            subscriptions_url: 'https://api.github.com/users/web-flow/subscriptions',
+            starred_url:
+                'https://api.github.com/users/web-flow/starred{/owner}{/repo}',
+            subscriptions_url:
+                'https://api.github.com/users/web-flow/subscriptions',
             organizations_url: 'https://api.github.com/users/web-flow/orgs',
             repos_url: 'https://api.github.com/users/web-flow/repos',
-            events_url: 'https://api.github.com/users/web-flow/events{/privacy}',
-            received_events_url: 'https://api.github.com/users/web-flow/received_events',
+            events_url:
+                'https://api.github.com/users/web-flow/events{/privacy}',
+            received_events_url:
+                'https://api.github.com/users/web-flow/received_events',
             type: 'User',
             site_admin: false
         },
@@ -80,7 +97,8 @@ export const PULLS = {
     html_url: 'https://github.com/webdriverio/webdriverio/pull/12121',
     diff_url: 'https://github.com/webdriverio/webdriverio/pull/12121.diff',
     patch_url: 'https://github.com/webdriverio/webdriverio/pull/12121.patch',
-    issue_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues/12121',
+    issue_url:
+        'https://api.github.com/repos/webdriverio/webdriverio/issues/12121',
     number: 12121,
     state: 'closed',
     locked: false,
@@ -93,19 +111,28 @@ export const PULLS = {
         gravatar_id: '',
         url: 'https://api.github.com/users/dependabot%5Bbot%5D',
         html_url: 'https://github.com/apps/dependabot',
-        followers_url: 'https://api.github.com/users/dependabot%5Bbot%5D/followers',
-        following_url: 'https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}',
-        gists_url: 'https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}',
-        starred_url: 'https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}',
-        subscriptions_url: 'https://api.github.com/users/dependabot%5Bbot%5D/subscriptions',
-        organizations_url: 'https://api.github.com/users/dependabot%5Bbot%5D/orgs',
+        followers_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/followers',
+        following_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}',
+        gists_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}',
+        starred_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}',
+        subscriptions_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/subscriptions',
+        organizations_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/orgs',
         repos_url: 'https://api.github.com/users/dependabot%5Bbot%5D/repos',
-        events_url: 'https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}',
-        received_events_url: 'https://api.github.com/users/dependabot%5Bbot%5D/received_events',
+        events_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}',
+        received_events_url:
+            'https://api.github.com/users/dependabot%5Bbot%5D/received_events',
         type: 'Bot',
         site_admin: false
     },
-    body: 'Bumps [dotenv](https://github.com/motdotla/dotenv) from 16.3.2 to 16.4.1.\n' +
+    body:
+        'Bumps [dotenv](https://github.com/motdotla/dotenv) from 16.3.2 to 16.4.1.\n' +
         '<details>\n' +
         '<summary>Changelog</summary>\n' +
         `<p><em>Sourced from <a href="https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md">dotenv's changelog</a>.</em></p>\n` +
@@ -199,11 +226,16 @@ export const PULLS = {
     ],
     milestone: null,
     draft: false,
-    commits_url: 'https://api.github.com/repos/webdriverio/webdriverio/pulls/12121/commits',
-    review_comments_url: 'https://api.github.com/repos/webdriverio/webdriverio/pulls/12121/comments',
-    review_comment_url: 'https://api.github.com/repos/webdriverio/webdriverio/pulls/comments{/number}',
-    comments_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues/12121/comments',
-    statuses_url: 'https://api.github.com/repos/webdriverio/webdriverio/statuses/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4',
+    commits_url:
+        'https://api.github.com/repos/webdriverio/webdriverio/pulls/12121/commits',
+    review_comments_url:
+        'https://api.github.com/repos/webdriverio/webdriverio/pulls/12121/comments',
+    review_comment_url:
+        'https://api.github.com/repos/webdriverio/webdriverio/pulls/comments{/number}',
+    comments_url:
+        'https://api.github.com/repos/webdriverio/webdriverio/issues/12121/comments',
+    statuses_url:
+        'https://api.github.com/repos/webdriverio/webdriverio/statuses/e99d2954daf6f9fb948ddf38a89dc141c04ed5c4',
     head: {
         label: 'webdriverio:dependabot/npm_and_yarn/dotenv-16.4.1',
         ref: 'dependabot/npm_and_yarn/dotenv-16.4.1',
@@ -217,14 +249,20 @@ export const PULLS = {
             url: 'https://api.github.com/users/webdriverio',
             html_url: 'https://github.com/webdriverio',
             followers_url: 'https://api.github.com/users/webdriverio/followers',
-            following_url: 'https://api.github.com/users/webdriverio/following{/other_user}',
-            gists_url: 'https://api.github.com/users/webdriverio/gists{/gist_id}',
-            starred_url: 'https://api.github.com/users/webdriverio/starred{/owner}{/repo}',
-            subscriptions_url: 'https://api.github.com/users/webdriverio/subscriptions',
+            following_url:
+                'https://api.github.com/users/webdriverio/following{/other_user}',
+            gists_url:
+                'https://api.github.com/users/webdriverio/gists{/gist_id}',
+            starred_url:
+                'https://api.github.com/users/webdriverio/starred{/owner}{/repo}',
+            subscriptions_url:
+                'https://api.github.com/users/webdriverio/subscriptions',
             organizations_url: 'https://api.github.com/users/webdriverio/orgs',
             repos_url: 'https://api.github.com/users/webdriverio/repos',
-            events_url: 'https://api.github.com/users/webdriverio/events{/privacy}',
-            received_events_url: 'https://api.github.com/users/webdriverio/received_events',
+            events_url:
+                'https://api.github.com/users/webdriverio/events{/privacy}',
+            received_events_url:
+                'https://api.github.com/users/webdriverio/received_events',
             type: 'Organization',
             site_admin: false
         },
@@ -236,45 +274,82 @@ export const PULLS = {
             private: false,
             owner: [Object],
             html_url: 'https://github.com/webdriverio/webdriverio',
-            description: 'Next-gen browser and mobile automation test framework for Node.js',
+            description:
+                'Next-gen browser and mobile automation test framework for Node.js',
             fork: false,
             url: 'https://api.github.com/repos/webdriverio/webdriverio',
-            forks_url: 'https://api.github.com/repos/webdriverio/webdriverio/forks',
-            keys_url: 'https://api.github.com/repos/webdriverio/webdriverio/keys{/key_id}',
-            collaborators_url: 'https://api.github.com/repos/webdriverio/webdriverio/collaborators{/collaborator}',
-            teams_url: 'https://api.github.com/repos/webdriverio/webdriverio/teams',
-            hooks_url: 'https://api.github.com/repos/webdriverio/webdriverio/hooks',
-            issue_events_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues/events{/number}',
-            events_url: 'https://api.github.com/repos/webdriverio/webdriverio/events',
-            assignees_url: 'https://api.github.com/repos/webdriverio/webdriverio/assignees{/user}',
-            branches_url: 'https://api.github.com/repos/webdriverio/webdriverio/branches{/branch}',
-            tags_url: 'https://api.github.com/repos/webdriverio/webdriverio/tags',
-            blobs_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/blobs{/sha}',
-            git_tags_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/tags{/sha}',
-            git_refs_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/refs{/sha}',
-            trees_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/trees{/sha}',
-            statuses_url: 'https://api.github.com/repos/webdriverio/webdriverio/statuses/{sha}',
-            languages_url: 'https://api.github.com/repos/webdriverio/webdriverio/languages',
-            stargazers_url: 'https://api.github.com/repos/webdriverio/webdriverio/stargazers',
-            contributors_url: 'https://api.github.com/repos/webdriverio/webdriverio/contributors',
-            subscribers_url: 'https://api.github.com/repos/webdriverio/webdriverio/subscribers',
-            subscription_url: 'https://api.github.com/repos/webdriverio/webdriverio/subscription',
-            commits_url: 'https://api.github.com/repos/webdriverio/webdriverio/commits{/sha}',
-            git_commits_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/commits{/sha}',
-            comments_url: 'https://api.github.com/repos/webdriverio/webdriverio/comments{/number}',
-            issue_comment_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues/comments{/number}',
-            contents_url: 'https://api.github.com/repos/webdriverio/webdriverio/contents/{+path}',
-            compare_url: 'https://api.github.com/repos/webdriverio/webdriverio/compare/{base}...{head}',
-            merges_url: 'https://api.github.com/repos/webdriverio/webdriverio/merges',
-            archive_url: 'https://api.github.com/repos/webdriverio/webdriverio/{archive_format}{/ref}',
-            downloads_url: 'https://api.github.com/repos/webdriverio/webdriverio/downloads',
-            issues_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues{/number}',
-            pulls_url: 'https://api.github.com/repos/webdriverio/webdriverio/pulls{/number}',
-            milestones_url: 'https://api.github.com/repos/webdriverio/webdriverio/milestones{/number}',
-            notifications_url: 'https://api.github.com/repos/webdriverio/webdriverio/notifications{?since,all,participating}',
-            labels_url: 'https://api.github.com/repos/webdriverio/webdriverio/labels{/name}',
-            releases_url: 'https://api.github.com/repos/webdriverio/webdriverio/releases{/id}',
-            deployments_url: 'https://api.github.com/repos/webdriverio/webdriverio/deployments',
+            forks_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/forks',
+            keys_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/keys{/key_id}',
+            collaborators_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/collaborators{/collaborator}',
+            teams_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/teams',
+            hooks_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/hooks',
+            issue_events_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/issues/events{/number}',
+            events_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/events',
+            assignees_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/assignees{/user}',
+            branches_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/branches{/branch}',
+            tags_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/tags',
+            blobs_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/blobs{/sha}',
+            git_tags_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/tags{/sha}',
+            git_refs_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/refs{/sha}',
+            trees_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/trees{/sha}',
+            statuses_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/statuses/{sha}',
+            languages_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/languages',
+            stargazers_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/stargazers',
+            contributors_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/contributors',
+            subscribers_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/subscribers',
+            subscription_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/subscription',
+            commits_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/commits{/sha}',
+            git_commits_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/commits{/sha}',
+            comments_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/comments{/number}',
+            issue_comment_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/issues/comments{/number}',
+            contents_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/contents/{+path}',
+            compare_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/compare/{base}...{head}',
+            merges_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/merges',
+            archive_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/{archive_format}{/ref}',
+            downloads_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/downloads',
+            issues_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/issues{/number}',
+            pulls_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/pulls{/number}',
+            milestones_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/milestones{/number}',
+            notifications_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/notifications{?since,all,participating}',
+            labels_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/labels{/name}',
+            releases_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/releases{/id}',
+            deployments_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/deployments',
             created_at: '2011-08-30T19:02:35Z',
             updated_at: '2024-02-14T02:23:03Z',
             pushed_at: '2024-02-14T01:37:18Z',
@@ -323,14 +398,20 @@ export const PULLS = {
             url: 'https://api.github.com/users/webdriverio',
             html_url: 'https://github.com/webdriverio',
             followers_url: 'https://api.github.com/users/webdriverio/followers',
-            following_url: 'https://api.github.com/users/webdriverio/following{/other_user}',
-            gists_url: 'https://api.github.com/users/webdriverio/gists{/gist_id}',
-            starred_url: 'https://api.github.com/users/webdriverio/starred{/owner}{/repo}',
-            subscriptions_url: 'https://api.github.com/users/webdriverio/subscriptions',
+            following_url:
+                'https://api.github.com/users/webdriverio/following{/other_user}',
+            gists_url:
+                'https://api.github.com/users/webdriverio/gists{/gist_id}',
+            starred_url:
+                'https://api.github.com/users/webdriverio/starred{/owner}{/repo}',
+            subscriptions_url:
+                'https://api.github.com/users/webdriverio/subscriptions',
             organizations_url: 'https://api.github.com/users/webdriverio/orgs',
             repos_url: 'https://api.github.com/users/webdriverio/repos',
-            events_url: 'https://api.github.com/users/webdriverio/events{/privacy}',
-            received_events_url: 'https://api.github.com/users/webdriverio/received_events',
+            events_url:
+                'https://api.github.com/users/webdriverio/events{/privacy}',
+            received_events_url:
+                'https://api.github.com/users/webdriverio/received_events',
             type: 'Organization',
             site_admin: false
         },
@@ -342,45 +423,82 @@ export const PULLS = {
             private: false,
             owner: [],
             html_url: 'https://github.com/webdriverio/webdriverio',
-            description: 'Next-gen browser and mobile automation test framework for Node.js',
+            description:
+                'Next-gen browser and mobile automation test framework for Node.js',
             fork: false,
             url: 'https://api.github.com/repos/webdriverio/webdriverio',
-            forks_url: 'https://api.github.com/repos/webdriverio/webdriverio/forks',
-            keys_url: 'https://api.github.com/repos/webdriverio/webdriverio/keys{/key_id}',
-            collaborators_url: 'https://api.github.com/repos/webdriverio/webdriverio/collaborators{/collaborator}',
-            teams_url: 'https://api.github.com/repos/webdriverio/webdriverio/teams',
-            hooks_url: 'https://api.github.com/repos/webdriverio/webdriverio/hooks',
-            issue_events_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues/events{/number}',
-            events_url: 'https://api.github.com/repos/webdriverio/webdriverio/events',
-            assignees_url: 'https://api.github.com/repos/webdriverio/webdriverio/assignees{/user}',
-            branches_url: 'https://api.github.com/repos/webdriverio/webdriverio/branches{/branch}',
-            tags_url: 'https://api.github.com/repos/webdriverio/webdriverio/tags',
-            blobs_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/blobs{/sha}',
-            git_tags_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/tags{/sha}',
-            git_refs_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/refs{/sha}',
-            trees_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/trees{/sha}',
-            statuses_url: 'https://api.github.com/repos/webdriverio/webdriverio/statuses/{sha}',
-            languages_url: 'https://api.github.com/repos/webdriverio/webdriverio/languages',
-            stargazers_url: 'https://api.github.com/repos/webdriverio/webdriverio/stargazers',
-            contributors_url: 'https://api.github.com/repos/webdriverio/webdriverio/contributors',
-            subscribers_url: 'https://api.github.com/repos/webdriverio/webdriverio/subscribers',
-            subscription_url: 'https://api.github.com/repos/webdriverio/webdriverio/subscription',
-            commits_url: 'https://api.github.com/repos/webdriverio/webdriverio/commits{/sha}',
-            git_commits_url: 'https://api.github.com/repos/webdriverio/webdriverio/git/commits{/sha}',
-            comments_url: 'https://api.github.com/repos/webdriverio/webdriverio/comments{/number}',
-            issue_comment_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues/comments{/number}',
-            contents_url: 'https://api.github.com/repos/webdriverio/webdriverio/contents/{+path}',
-            compare_url: 'https://api.github.com/repos/webdriverio/webdriverio/compare/{base}...{head}',
-            merges_url: 'https://api.github.com/repos/webdriverio/webdriverio/merges',
-            archive_url: 'https://api.github.com/repos/webdriverio/webdriverio/{archive_format}{/ref}',
-            downloads_url: 'https://api.github.com/repos/webdriverio/webdriverio/downloads',
-            issues_url: 'https://api.github.com/repos/webdriverio/webdriverio/issues{/number}',
-            pulls_url: 'https://api.github.com/repos/webdriverio/webdriverio/pulls{/number}',
-            milestones_url: 'https://api.github.com/repos/webdriverio/webdriverio/milestones{/number}',
-            notifications_url: 'https://api.github.com/repos/webdriverio/webdriverio/notifications{?since,all,participating}',
-            labels_url: 'https://api.github.com/repos/webdriverio/webdriverio/labels{/name}',
-            releases_url: 'https://api.github.com/repos/webdriverio/webdriverio/releases{/id}',
-            deployments_url: 'https://api.github.com/repos/webdriverio/webdriverio/deployments',
+            forks_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/forks',
+            keys_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/keys{/key_id}',
+            collaborators_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/collaborators{/collaborator}',
+            teams_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/teams',
+            hooks_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/hooks',
+            issue_events_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/issues/events{/number}',
+            events_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/events',
+            assignees_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/assignees{/user}',
+            branches_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/branches{/branch}',
+            tags_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/tags',
+            blobs_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/blobs{/sha}',
+            git_tags_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/tags{/sha}',
+            git_refs_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/refs{/sha}',
+            trees_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/trees{/sha}',
+            statuses_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/statuses/{sha}',
+            languages_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/languages',
+            stargazers_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/stargazers',
+            contributors_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/contributors',
+            subscribers_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/subscribers',
+            subscription_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/subscription',
+            commits_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/commits{/sha}',
+            git_commits_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/git/commits{/sha}',
+            comments_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/comments{/number}',
+            issue_comment_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/issues/comments{/number}',
+            contents_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/contents/{+path}',
+            compare_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/compare/{base}...{head}',
+            merges_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/merges',
+            archive_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/{archive_format}{/ref}',
+            downloads_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/downloads',
+            issues_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/issues{/number}',
+            pulls_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/pulls{/number}',
+            milestones_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/milestones{/number}',
+            notifications_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/notifications{?since,all,participating}',
+            labels_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/labels{/name}',
+            releases_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/releases{/id}',
+            deployments_url:
+                'https://api.github.com/repos/webdriverio/webdriverio/deployments',
             created_at: '2011-08-30T19:02:35Z',
             updated_at: '2024-02-14T02:23:03Z',
             pushed_at: '2024-02-14T01:37:18Z',
@@ -455,15 +573,23 @@ export const PULLS = {
         gravatar_id: '',
         url: 'https://api.github.com/users/christian-bromann',
         html_url: 'https://github.com/christian-bromann',
-        followers_url: 'https://api.github.com/users/christian-bromann/followers',
-        following_url: 'https://api.github.com/users/christian-bromann/following{/other_user}',
-        gists_url: 'https://api.github.com/users/christian-bromann/gists{/gist_id}',
-        starred_url: 'https://api.github.com/users/christian-bromann/starred{/owner}{/repo}',
-        subscriptions_url: 'https://api.github.com/users/christian-bromann/subscriptions',
-        organizations_url: 'https://api.github.com/users/christian-bromann/orgs',
+        followers_url:
+            'https://api.github.com/users/christian-bromann/followers',
+        following_url:
+            'https://api.github.com/users/christian-bromann/following{/other_user}',
+        gists_url:
+            'https://api.github.com/users/christian-bromann/gists{/gist_id}',
+        starred_url:
+            'https://api.github.com/users/christian-bromann/starred{/owner}{/repo}',
+        subscriptions_url:
+            'https://api.github.com/users/christian-bromann/subscriptions',
+        organizations_url:
+            'https://api.github.com/users/christian-bromann/orgs',
         repos_url: 'https://api.github.com/users/christian-bromann/repos',
-        events_url: 'https://api.github.com/users/christian-bromann/events{/privacy}',
-        received_events_url: 'https://api.github.com/users/christian-bromann/received_events',
+        events_url:
+            'https://api.github.com/users/christian-bromann/events{/privacy}',
+        received_events_url:
+            'https://api.github.com/users/christian-bromann/received_events',
         type: 'User',
         site_admin: false
     },
