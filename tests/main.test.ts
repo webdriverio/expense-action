@@ -10,7 +10,7 @@ import { PULLS } from './__fixtures__/gh.js' assert { type: 'json' }
 
 vi.mock('@actions/core', () => ({
     setFailed: vi.fn(),
-    getInput: vi.fn((input) => {
+    getInput: vi.fn(input => {
         if (input === 'prNumber') return '12121'
         if (input === 'amount') return '123'
     })
@@ -27,7 +27,9 @@ vi.mock('resend', () => {
 })
 
 vi.mock('@octokit/rest', async () => {
-    const { COMMITS, PULLS } = await import('./__fixtures__/gh.js', { assert: { type: 'json' } })
+    const { COMMITS, PULLS } = await import('./__fixtures__/gh.js', {
+        assert: { type: 'json' }
+    })
     const listCommits = vi.fn().mockReturnValue({ data: COMMITS })
     const get = vi.fn().mockReturnValue({ data: PULLS })
     const createComment = vi.fn()
@@ -57,14 +59,20 @@ describe('run', () => {
 
 describe('expense', () => {
     it('should throw if environment variables are not set', async () => {
-        await expect(() => expense()).rejects.toThrow('Please export a "GH_TOKEN"')
-        await expect(() => expense({
-            githubToken: 'token'
-        } as any)).rejects.toThrow('Please export a "RESEND_API_KEY"')
-        await expect(() => expense({
-            githubToken: 'token',
-            resendAPIKey: 'token'
-        } as any)).rejects.toThrow('Could not get repository information')
+        await expect(() => expense()).rejects.toThrow(
+            'Please export a "GH_TOKEN"'
+        )
+        await expect(() =>
+            expense({
+                githubToken: 'token'
+            } as any)
+        ).rejects.toThrow('Please export a "RESEND_API_KEY"')
+        await expect(() =>
+            expense({
+                githubToken: 'token',
+                resendAPIKey: 'token'
+            } as any)
+        ).rejects.toThrow('Could not get repository information')
     })
 
     it('should properly expense a PR', async () => {
@@ -153,11 +161,13 @@ describe('expense', () => {
             data: { ...PULLS, merge_commit_sha: undefined }
         })
         vi.mocked(get).mockResolvedValue(pulls)
-        await expect(() => expense({
-            githubToken: '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',
-            resendAPIKey: 'token',
-            actionRepo: 'webdriverio/webdriverio'
-        })).rejects.toThrow('Pull request has not been merged yet!')
+        await expect(() =>
+            expense({
+                githubToken: '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',
+                resendAPIKey: 'token',
+                actionRepo: 'webdriverio/webdriverio'
+            })
+        ).rejects.toThrow('Pull request has not been merged yet!')
     })
 
     it('fails if PR has already been expensed', async () => {
@@ -165,10 +175,12 @@ describe('expense', () => {
             data: { ...PULLS, labels: [{ name: 'Expensable $123 💸' }] }
         })
         vi.mocked(get).mockResolvedValue(pulls)
-        await expect(() => expense({
-            githubToken: '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',
-            resendAPIKey: 'token',
-            actionRepo: 'webdriverio/webdriverio'
-        })).rejects.toThrow('Pull request has already been expensed!')
+        await expect(() =>
+            expense({
+                githubToken: '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',
+                resendAPIKey: 'token',
+                actionRepo: 'webdriverio/webdriverio'
+            })
+        ).rejects.toThrow('Pull request has already been expensed!')
     })
 })

@@ -33,11 +33,13 @@ export async function run(): Promise<void> {
     }
 }
 
-export async function expense({ actionRepo, resendAPIKey, githubToken } = {
-    actionRepo: process.env.GITHUB_REPOSITORY,
-    resendAPIKey: process.env.RESEND_API_KEY,
-    githubToken: process.env.GH_TOKEN
-}): Promise<void> {
+export async function expense(
+    { actionRepo, resendAPIKey, githubToken } = {
+        actionRepo: process.env.GITHUB_REPOSITORY,
+        resendAPIKey: process.env.RESEND_API_KEY,
+        githubToken: process.env.GH_TOKEN
+    }
+): Promise<void> {
     /**
      * check if `GH_TOKEN` environment variable is set to interact with GitHub API
      */
