@@ -92,3 +92,16 @@ jobs:
 
 Then make sure to add `wdio-bot` as project admin so the workflow can properly
 label the issue if needed and comment on it.
+
+## Fork it!
+
+If you like to automate the expense process of your project and like to use this GitHub Action, please do so! All you need is to:
+
+- fork the project
+- create a GitHub bot account (or use your own user account) that has admin access to all repositories you like to use this workflow for
+- generate an access token for that account and replace it with `WDIO_BOT_GITHUB_TOKEN` and make it accessible to all repositories in your organisation
+- update the text within the [mail template](https://github.com/webdriverio/expense-action/blob/main/src/mail.tsx)
+
+---
+
+For more information on WebdriverIO expense policies, take a look at the [governance](https://github.com/webdriverio/webdriverio/blob/main/GOVERNANCE.md#sponsoring-and-donations) docs.
