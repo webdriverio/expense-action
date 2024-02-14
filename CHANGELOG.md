@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/webdriverio/expense-action/compare/expense-action-v0.4.0...expense-action-v0.4.1) (2024-02-14)
+
+
+### Bug Fixes
+
+* don't make additional PR ([d31c0cb](https://github.com/webdriverio/expense-action/commit/d31c0cbded6cd3a49d62b2e53ff0cf2fb0feda2e))
+
 ## [0.4.0](https://github.com/webdriverio/expense-action/compare/expense-action-v0.3.0...expense-action-v0.4.0) (2024-02-14)
 
 
