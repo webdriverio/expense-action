@@ -98,8 +98,8 @@ label the issue if needed and comment on it.
 If you like to automate the expense process of your project and like to use this GitHub Action, please do so! All you need is to:
 
 - fork the project
-- create a GitHub bot account (or use your own user account) that has admin access to all repositories you like to use this workflow for
-- generate an access token for that account and replace it with `WDIO_BOT_GITHUB_TOKEN` and make it accessible to all repositories in your organisation
+- create a GitHub bot account (or use your user account) that has admin access to all repositories you like to use this workflow for
+- generate an access token for that account and replace it with `WDIO_BOT_GITHUB_TOKEN` and make it accessible to all repositories in your organization
 - update the text within the [mail template](https://github.com/webdriverio/expense-action/blob/main/src/mail.tsx)
 
 ---
