@@ -1,37 +1,46 @@
 name: Continuous Integration
 
 on:
-  pull_request:
-  push:
-    branches:
-      - main
+    workflow_call:
+    pull_request:
+    push:
+        branches:
+            - main
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  test-typescript:
-    name: TypeScript Tests
-    runs-on: ubuntu-latest
+    test-typescript:
+        name: TypeScript Tests
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: npm
 
-      - name: Install Dependencies
-        run: npm ci
+            - name: Install Dependencies
+              run: npm ci
 
-      - name: Check Format
-        run: npm run format:check
+            - name: Check Format
+              run: npm run format:check
 
-      - name: Lint
-        run: npm run lint
+            - name: Lint
+              run: npm run lint
 
-      - name: Test
-        run: npm test
+            - name: Test
+              run: npm test
+
+            - name: Build
+              run: npm run package
+
+            - uses: actions/upload-artifact@v4
+              with:
+                name: dist
+                path: ./dist/
