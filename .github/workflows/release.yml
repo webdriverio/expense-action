@@ -12,13 +12,9 @@ permissions:
     pull-requests: write
 
 jobs:
-    build:
-        uses: ./.github/workflows/ci.yml
-
     release-pr:
         runs-on: ubuntu-latest
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        needs: [build]
         steps:
             - uses: google-github-actions/release-please-action@v4
               id: release
@@ -29,21 +25,31 @@ jobs:
     release:
         runs-on: ubuntu-latest
         if: ${{ contains(github.event.head_commit.message, 'release expense-action')}}
-        needs: [build]
         steps:
             - uses: google-github-actions/release-please-action@v4
               id: release
               with:
                 config-file: .github/release/config.json
                 manifest-file: .github/release/manifest.json
-            - uses: actions/checkout@v3
+
+            - uses: actions/checkout@v4
               with:
                 fetch-depth: 0
               if: ${{ steps.release.outputs.release_created }}
 
-            - uses: actions/download-artifact@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
               with:
-                name: dist
+                  node-version-file: .nvmrc
+                  cache: npm
+              if: ${{ steps.release.outputs.release_created }}
+
+            - name: Install Dependencies
+              run: npm ci
+              if: ${{ steps.release.outputs.release_created }}
+
+            - name: Build
+              run: npm run package
               if: ${{ steps.release.outputs.release_created }}
 
             - name: Publish to GitHub
