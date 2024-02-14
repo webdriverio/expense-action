@@ -9,6 +9,14 @@
 > A GitHub Action that enables WebdriverIO TSC members to grant expense requests
 > for contributed PRs to the project.
 
+This GitHub Action enables the allocation of funds for contributions received by the WebdriverIO project. It allows us to set up a simple workflow everywhere and use the same process, independent of the GitHub repository we receive the contribution.
+
+After triggering the workflow providing a pull request number and the expansible amount, the action finds the author of the commit and their respective email and sends an automated generated Email using [resend.com](https://resend.com/):
+
+![Example Email](.github/assets/example.png)
+
+The receiver can use the code to expense their contribution given the granted amount and by providing the code from the email.
+
 ## Usage
 
 Create a workflow file in a WebdriverIO ecosystem project:
