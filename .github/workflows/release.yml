@@ -31,6 +31,7 @@ jobs:
               with:
                 config-file: .github/release/config.json
                 manifest-file: .github/release/manifest.json
+                skip-github-pull-request: true
 
             - uses: actions/checkout@v4
               with:
