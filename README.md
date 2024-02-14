@@ -53,32 +53,25 @@ on:
                     - 1000
 
 jobs:
+    # (optional): make sure that the expense workflow is triggered
+    # by someone connected to a certain team, e.g. `technical-steering-committee`
     authorize:
         runs-on: ubuntu-latest
         steps:
             - uses: octokit/request-action@v2.1.9
               with:
-                  route:
-                      GET /orgs/:organisation/teams/:team/memberships/${{
-                      github.actor }}
+                  route: GET /orgs/:organisation/teams/:team/memberships/${{ github.actor }}
                   team: technical-steering-committee
                   organisation: webdriverio
               env:
                   GITHUB_TOKEN: ${{ secrets.WDIO_BOT_GITHUB_TOKEN }}
     expense:
+        needs: [authorize]
+        runs-on: ubuntu-latest
         permissions:
             contents: write
             id-token: write
-        needs: [authorize]
-        runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-              with:
-                  ref: 'main'
-                  fetch-depth: 0
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 20.x
             - name: Run Expense Flow
               uses: webdriverio/expense-action@v0.0.7
               with:
@@ -90,4 +83,4 @@ jobs:
 ```
 
 Then make sure to add `wdio-bot` as project admin so the workflow can properly
-label the issue.
+label the issue if needed and comment on it.

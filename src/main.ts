@@ -33,11 +33,15 @@ export async function run(): Promise<void> {
     }
 }
 
-export async function expense(): Promise<void> {
+export async function expense({ actionRepo, resendAPIKey, githubToken } = {
+    actionRepo: process.env.GITHUB_REPOSITORY,
+    resendAPIKey: process.env.RESEND_API_KEY,
+    githubToken: process.env.GH_TOKEN
+}): Promise<void> {
     /**
      * check if `GH_TOKEN` environment variable is set to interact with GitHub API
      */
-    if (!process.env.GH_TOKEN) {
+    if (!githubToken) {
         throw new Error(
             'Please export a "GH_TOKEN" access token into the environment.'
         )
@@ -46,7 +50,7 @@ export async function expense(): Promise<void> {
     /**
      * ensure that Resend API key is given
      */
-    if (!process.env.RESEND_API_KEY) {
+    if (!resendAPIKey) {
         throw new Error(
             'Please export a "RESEND_API_KEY" access token into the environment.'
         )
@@ -55,7 +59,6 @@ export async function expense(): Promise<void> {
     /**
      * get PR information from environment variables
      */
-    const actionRepo = process.env.GITHUB_REPOSITORY
     if (!actionRepo) {
         throw new Error(
             'Could not get repository information from environment, make sure `GITHUB_REPOSITORY` is defined in the environment'
@@ -74,7 +77,7 @@ export async function expense(): Promise<void> {
 
     const prURL = `https://github.com/${owner}/${repo}/pull/${prNumber}`
 
-    const api = new Octokit({ auth: process.env.GH_TOKEN })
+    const api = new Octokit({ auth: githubToken })
     const options = {
         owner,
         repo,
@@ -103,7 +106,7 @@ export async function expense(): Promise<void> {
     console.log(`Send expense email to ${prAuthorEmail} for PR #${prNumber}`)
     console.log(`Amount to be expensed: $${expenseAmount}`)
 
-    const resend = new Resend(process.env.RESEND_API_KEY)
+    const resend = new Resend(resendAPIKey)
     const subject = 'Thank you for contributing to WebdriverIO!'
     const data = await resend.emails.send({
         from,
