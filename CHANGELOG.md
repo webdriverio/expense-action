@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.0.0...expense-action-v1.1.0) (2024-02-15)
+
+
+### Features
+
+* update expense format ([61b0bc7](https://github.com/webdriverio/expense-action/commit/61b0bc715197428565248396dede3126d996dce1))
+
+
+### Bug Fixes
+
+* update dist ([963c7e8](https://github.com/webdriverio/expense-action/commit/963c7e8bc4edd0ec3dab6eb6022f83ba022b8725))
+
 ## [1.0.0](https://github.com/webdriverio/expense-action/compare/expense-action-v0.4.1...expense-action-v1.0.0) (2024-02-14)
 
 
