@@ -91,13 +91,14 @@ export const ExpenseEmail = ({
                             <strong>Invoice</strong>, enter your address, select
                             a payment method, and click <strong>Next</strong>.
                             Fill in expense details on the next page, including
-                            your pull request URL in the{' '}
+                            your pull request name in the{' '}
                             <strong>Expense title</strong> and the pull request
-                            title in the <strong>Expense description</strong>.
-                            Set the date to <strong>{formattedDate}</strong> and
-                            the amount to <strong>${expenseAmount}</strong>.
-                            Finally, paste the provided key into the notes
-                            section on the last page.
+                            number with the current month and year in the
+                            <strong>Expense description</strong>. Set the date
+                            to <strong>{formattedDate}</strong> and the amount
+                            to <strong>${expenseAmount}</strong>. Finally, paste
+                            the provided key into the notes section on the last
+                            page.
                         </Text>
                         <CodeBlock
                             theme={a11yDark}
