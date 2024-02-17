@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/webdriverio/expense-action/compare/expense-action-v1.1.0...expense-action-v1.1.1) (2024-02-17)
+
+
+### Bug Fixes
+
+* add missing space ([63f1545](https://github.com/webdriverio/expense-action/commit/63f15459691287d692671346562c637f0c91a25f))
+
 ## [1.1.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.0.0...expense-action-v1.1.0) (2024-02-15)
 
 
