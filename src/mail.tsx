@@ -93,7 +93,7 @@ export const ExpenseEmail = ({
                             Fill in expense details on the next page, including
                             your pull request name in the{' '}
                             <strong>Expense title</strong> and the pull request
-                            number with the current month and year in the
+                            number with the current month and year in the{' '}
                             <strong>Expense description</strong>. Set the date
                             to <strong>{formattedDate}</strong> and the amount
                             to <strong>${expenseAmount}</strong>. Finally, paste
