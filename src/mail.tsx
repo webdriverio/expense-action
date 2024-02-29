@@ -93,8 +93,9 @@ export const ExpenseEmail = ({
                             Fill in expense details on the next page, including
                             an <strong>Expense title</strong> with{' '}
                             <CodeInline>
-                                "Project Contribution PR #{prNumber}"
-                            </CodeInline>
+                                "Project Contribution PR {owner}/{repo}#
+                                {prNumber}"
+                            </CodeInline>{' '}
                             and the pull request title with the current month
                             month and year in the{' '}
                             <strong>Expense description</strong>. Set the date
