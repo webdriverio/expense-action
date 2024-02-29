@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/webdriverio/expense-action/compare/expense-action-v1.1.1...expense-action-v1.1.2) (2024-02-29)
+
+
+### Bug Fixes
+
+* update expense description in report ([bbaf8c1](https://github.com/webdriverio/expense-action/commit/bbaf8c1bdd450c225d16db28da5ad2bde6ed6429))
+
 ## [1.1.1](https://github.com/webdriverio/expense-action/compare/expense-action-v1.1.0...expense-action-v1.1.1) (2024-02-17)
 
 
