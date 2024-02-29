@@ -91,9 +91,12 @@ export const ExpenseEmail = ({
                             <strong>Invoice</strong>, enter your address, select
                             a payment method, and click <strong>Next</strong>.
                             Fill in expense details on the next page, including
-                            your pull request name in the{' '}
-                            <strong>Expense title</strong> and the pull request
-                            number with the current month and year in the{' '}
+                            an <strong>Expense title</strong> with{' '}
+                            <CodeInline>
+                                "Project Contribution PR #{prNumber}"
+                            </CodeInline>
+                            and the pull request title with the current month
+                            month and year in the{' '}
                             <strong>Expense description</strong>. Set the date
                             to <strong>{formattedDate}</strong> and the amount
                             to <strong>${expenseAmount}</strong>. Finally, paste
