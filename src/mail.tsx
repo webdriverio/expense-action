@@ -51,7 +51,7 @@ export const ExpenseEmail = ({
                 <Body className="bg-white my-auto mx-auto font-sans px-2">
                     <Container
                         style={container}
-                        className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[450px]">
+                        className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] max-w-[650px]">
                         <Section className="mt-[32px]">
                             <Img
                                 src="https://webdriver.io/assets/images/robot-3677788dd63849c56aa5cb3f332b12d5.svg"
