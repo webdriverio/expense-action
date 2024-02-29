@@ -38,7 +38,9 @@ on:
                 type: choice
                 default: 'patch'
                 options:
+                    - 15
                     - 25
+                    - 35
                     - 50
                     - 100
                     - 150
