@@ -36,7 +36,6 @@ on:
                     in $'
                 required: true
                 type: choice
-                default: 'patch'
                 options:
                     - 15
                     - 25
