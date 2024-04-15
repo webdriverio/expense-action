@@ -39,7 +39,7 @@
     "@octokit/rest": "^20.1.0",
     "@react-email/components": "^0.0.16",
     "@react-email/tailwind": "^0.0.15",
-    "@types/react": "^18.2.74",
+    "@types/react": "^18.2.78",
     "react": "^18.2.0",
     "resend": "^3.2.0"
   },
