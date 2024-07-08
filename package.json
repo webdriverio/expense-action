@@ -37,7 +37,7 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@octokit/rest": "^21.0.0",
-    "@react-email/components": "^0.0.19",
+    "@react-email/components": "^0.0.21",
     "@react-email/tailwind": "^0.0.18",
     "@types/react": "^18.3.3",
     "react": "^18.3.1",
