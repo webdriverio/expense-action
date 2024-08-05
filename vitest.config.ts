@@ -4,7 +4,7 @@ export default defineConfig({
     test: {
         coverage: {
             enabled: true,
-            exclude: ['src/mail.tsx'],
+            exclude: ['src/mail.tsx', 'dist', 'vitest.config.ts'],
             thresholds: {
                 statements: 99,
                 branches: 87,
