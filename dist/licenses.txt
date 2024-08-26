@@ -266,12 +266,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@radix-ui/react-compose-refs
-MIT
-
-@radix-ui/react-slot
-MIT
-
 @react-email/body
 MIT
 Copyright 2024 Plus Five Five, Inc
