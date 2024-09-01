@@ -167,7 +167,7 @@ describe('expense', () => {
         vi.mocked(get).mockResolvedValue(pulls)
         await expect(async () =>
             expense({
-                githubToken: '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',
+                githubToken: 'token',
                 resendAPIKey: 'token',
                 actionRepo: 'webdriverio/webdriverio'
             })
@@ -181,7 +181,7 @@ describe('expense', () => {
         vi.mocked(get).mockResolvedValue(pulls)
         await expect(async () =>
             expense({
-                githubToken: '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',
+                githubToken: 'token',
                 resendAPIKey: 'token',
                 actionRepo: 'webdriverio/webdriverio'
             })
