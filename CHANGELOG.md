@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.1.2...expense-action-v1.2.0) (2024-09-01)
+
+
+### Features
+
+* add github no reply email detection ([#88](https://github.com/webdriverio/expense-action/issues/88)) ([7d94908](https://github.com/webdriverio/expense-action/commit/7d94908e10be8c781fe9eb5b7faa789134803b32))
+
+
+### Bug Fixes
+
+* tailwind react-email unique key prop issue ([#87](https://github.com/webdriverio/expense-action/issues/87)) ([36ae84b](https://github.com/webdriverio/expense-action/commit/36ae84b7a50a76c9a0cecc90bfb6fb28fe18fde0))
+
 ## [1.1.2](https://github.com/webdriverio/expense-action/compare/expense-action-v1.1.1...expense-action-v1.1.2) (2024-02-29)
 
 
