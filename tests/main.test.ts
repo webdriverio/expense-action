@@ -4,10 +4,10 @@ import { setFailed } from '@actions/core'
 import { send } from 'resend'
 // @ts-expect-error mock feature
 // eslint-disable-next-line import/named
-import { addLabels, createComment, get } from '@octokit/rest'
+import { addLabels, createComment, get, listCommits } from '@octokit/rest'
 
 import { run, expense } from '../src/main.js'
-import { PULLS } from './__fixtures__/gh.js' assert { type: 'json' }
+import { COMMITS, PULLS } from './__fixtures__/gh.js' assert { type: 'json' }
 
 vi.mock('@actions/core', () => ({
     setFailed: vi.fn(),
@@ -28,18 +28,18 @@ vi.mock('resend', () => {
 })
 
 vi.mock('@octokit/rest', async () => {
-    const { COMMITS, PULLS: PULL_IMPORT } = await import(
+    const { COMMITS: COMMIT_IMPORT, PULLS: PULL_IMPORT } = await import(
         './__fixtures__/gh.js',
         {
             assert: { type: 'json' }
         }
     )
-    const listCommits = vi.fn().mockReturnValue({ data: COMMITS })
+    const listCommitsMock = vi.fn().mockReturnValue({ data: COMMIT_IMPORT })
     const getMock = vi.fn().mockReturnValue({ data: PULL_IMPORT })
     const createCommentMock = vi.fn()
     const addLabelsMock = vi.fn()
     return {
-        listCommits,
+        listCommits: listCommitsMock,
         createComment: createCommentMock,
         get: getMock,
         addLabels: addLabelsMock,
@@ -116,7 +116,10 @@ describe('expense', () => {
                 {
                   "body": "Hey __dependabot[bot]__ 👋
 
-          Thank you for your contribution to WebdriverIO! Your pull request has been marked as an "Expensable" contribution. We've sent you an email with further instructions on how to claim your expenses from our development fund. Please make sure to check your spam folder as well. If you have any questions, feel free to reach out to us at __expense@webdriver.io__ or in the contributing channel on [Discord](https://discord.webdriver.io).
+          Thank you for your contribution to WebdriverIO! Your pull request has been marked as an "Expensable" contribution.
+          
+          We've sent you an email with further instructions on how to claim your expenses from our development fund.
+          Please make sure to check your spam folder as well. If you have any questions, feel free to reach out to us at __expense@webdriver.io__ or in the contributing channel on [Discord](https://discord.webdriver.io).
 
           We are looking forward to more contributions from you in the future 🙌
 
@@ -145,6 +148,48 @@ describe('expense', () => {
                   "labels": [
                     "Expensable $123 💸",
                   ],
+                  "owner": "webdriverio",
+                  "repo": "webdriverio",
+                },
+              ],
+            ],
+            "results": [
+              {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        `)
+    })
+
+    it('should properly warn if the commit user has a Github noreply email', async () => {
+        const mockedCommits = [...COMMITS]
+        mockedCommits[0].commit.author.email = 'foo@@users.noreply.github.com'
+        vi.mocked(listCommits).mockResolvedValue({ data: mockedCommits })
+        createComment.mockClear()
+        await expense({
+            githubToken: 'token',
+            resendAPIKey: 'token',
+            actionRepo: 'webdriverio/webdriverio'
+        })
+        expect(createComment).toMatchInlineSnapshot(`
+          [MockFunction spy] {
+            "calls": [
+              [
+                {
+                  "body": "Hey __dependabot[bot]__ 👋
+
+          Thank you for your contribution to WebdriverIO! Your pull request has been marked as an "Expensable" contribution.
+          
+          We've sent you an email with further instructions on how to claim your expenses from our development fund.
+          ⚠️ You seemed to have committed using an email address ending up with \`@users.noreply.github.com\`, if you don't receive the email please feel free to reach out to us at __expense@webdriver.io__ or in the contributing channel on [Discord](https://discord.webdriver.io).
+
+          We are looking forward to more contributions from you in the future 🙌
+
+          Have a nice day,
+          The WebdriverIO Team 🤖",
+                  "issue_number": 12121,
                   "owner": "webdriverio",
                   "repo": "webdriverio",
                 },

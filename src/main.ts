@@ -6,6 +6,7 @@ import { Octokit } from '@octokit/rest'
 import Email from './mail.js'
 import {
     CONFIRMATION_COMMENT,
+    CONFIRMATION_COMMENT_GHNOREPLY,
     CONFIRMATION_MESSAGE,
     FROM as from,
     BCC as bcc
@@ -103,7 +104,16 @@ export async function expense(
     const prAuthors = new Set(
         commits.data.map(commit => commit.commit.author?.email).filter(Boolean)
     )
-    const prAuthorEmail = prAuthors.values().next().value
+    const prAuthorEmail = prAuthors.values().next().value as string
+
+    /**
+     * Checks if the email address ends up with the Github no reply.
+     * There is an issue with GitHub not redirecting emails to the user
+     * See issue #86 for more information
+     */
+    const isNoReplyGithubEmail = prAuthorEmail.endsWith(
+        '@users.noreply.github.com'
+    )
 
     console.log(`Send expense email to ${prAuthorEmail} for PR #${prNumber}`)
     console.log(`Amount to be expensed: $${expenseAmount}`)
@@ -137,13 +147,17 @@ export async function expense(
         issue_number: prNumber
     } as const
 
+    const comment = isNoReplyGithubEmail
+        ? CONFIRMATION_COMMENT_GHNOREPLY
+        : CONFIRMATION_COMMENT
+
     /**
      * Add a comment to the PR that an expense email has been sent out
      */
     console.log(`Adding comment to PR #${prNumber}, letting user know...`)
     await api.issues.createComment({
         ...issueOptions,
-        body: `Hey __${pr.data.user.login}__ 👋\n\n${CONFIRMATION_COMMENT}`
+        body: `Hey __${pr.data.user.login}__ 👋\n\n${comment}`
     })
 
     console.log(`Adding expense label to PR #${prNumber}...`)
