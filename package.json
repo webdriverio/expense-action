@@ -45,9 +45,9 @@
     "resend": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.5.2",
-    "@typescript-eslint/eslint-plugin": "^8.3.0",
-    "@typescript-eslint/parser": "^8.3.0",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
     "@vercel/ncc": "^0.38.1",
     "@vitest/coverage-v8": "^2.0.5",
     "eslint": "^8.57.0",
