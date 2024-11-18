@@ -3,7 +3,6 @@ import { setFailed } from '@actions/core'
 // @ts-expect-error mock feature
 import { send } from 'resend'
 // @ts-expect-error mock feature
-// eslint-disable-next-line import/named
 import { addLabels, createComment, get, listCommits } from '@octokit/rest'
 
 import { run, expense } from '../src/main.js'
@@ -12,8 +11,12 @@ import { COMMITS, PULLS } from './__fixtures__/gh.js' assert { type: 'json' }
 vi.mock('@actions/core', () => ({
     setFailed: vi.fn(),
     getInput: vi.fn(input => {
-        if (input === 'prNumber') return '12121'
-        if (input === 'amount') return '123'
+        if (input === 'prNumber') {
+            return '12121'
+        }
+        if (input === 'amount') {
+            return '123'
+        }
     })
 }))
 
@@ -117,7 +120,7 @@ describe('expense', () => {
                   "body": "Hey __dependabot[bot]__ 👋
 
           Thank you for your contribution to WebdriverIO! Your pull request has been marked as an "Expensable" contribution.
-          
+
           We've sent you an email with further instructions on how to claim your expenses from our development fund.
           Please make sure to check your spam folder as well. If you have any questions, feel free to reach out to us at __expense@webdriver.io__ or in the contributing channel on [Discord](https://discord.webdriver.io).
 
@@ -181,7 +184,7 @@ describe('expense', () => {
                   "body": "Hey __dependabot[bot]__ 👋
 
           Thank you for your contribution to WebdriverIO! Your pull request has been marked as an "Expensable" contribution.
-          
+
           We've sent you an email with further instructions on how to claim your expenses from our development fund.
           ⚠️ You seemed to have committed using an email address ending up with \`@users.noreply.github.com\`, if you don't receive the email please feel free to reach out to us at __expense@webdriver.io__ or in the contributing channel on [Discord](https://discord.webdriver.io).
 

@@ -135,7 +135,7 @@ export const PULLS = {
         'Bumps [dotenv](https://github.com/motdotla/dotenv) from 16.3.2 to 16.4.1.\n' +
         '<details>\n' +
         '<summary>Changelog</summary>\n' +
-        `<p><em>Sourced from <a href="https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md">dotenv's changelog</a>.</em></p>\n` +
+        '<p><em>Sourced from <a href="https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md">dotenv\'s changelog</a>.</em></p>\n' +
         '<blockquote>\n' +
         '<h2><a href="https://github.com/motdotla/dotenv/compare/v16.4.0...v16.4.1">16.4.1</a> (2024-01-24)</h2>\n' +
         '<ul>\n' +

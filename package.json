@@ -29,7 +29,7 @@
     "bundle": "npm run format:write && npm run package",
     "format:write": "prettier --write **/*.{ts,tsx}",
     "format:check": "prettier --check **/*.{ts,tsx}",
-    "lint": "eslint",
+    "lint": "eslint .",
     "package": "ncc build src/index.ts --license licenses.txt",
     "package:watch": "npm run package -- --watch",
     "test": "vitest -c vitest.config.ts --run",
