@@ -45,14 +45,14 @@
     "resend": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.9.3",
     "@vercel/ncc": "^0.38.3",
     "@vitest/coverage-v8": "^2.1.5",
     "@wdio/eslint": "^0.0.3",
     "eslint": "^9.15.0",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "vitest": "^2.0.5"
   }
 }
