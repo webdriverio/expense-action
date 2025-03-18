@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1](https://github.com/webdriverio/expense-action/compare/expense-action-v1.2.0...expense-action-v1.2.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* rebuild ([651cb3f](https://github.com/webdriverio/expense-action/commit/651cb3f63fa871fb6f6ed0cc065da96673cee557))
+* recompile project ([2ac49f6](https://github.com/webdriverio/expense-action/commit/2ac49f64f2baf74c29e98214f59a8ce43ed8b51f))
+* **testing:** fix eslint ([e90a7a9](https://github.com/webdriverio/expense-action/commit/e90a7a9dda194742555f9cbbd213f092e07a48f7))
+* update bundle ([75c5ebd](https://github.com/webdriverio/expense-action/commit/75c5ebd39274a3553dfcdc4c49d981cf4f9add8e))
+* vitest.config.ts format fix ([410db94](https://github.com/webdriverio/expense-action/commit/410db94549e7868002adf7fbdfcc5ac0113d2264))
+
 ## [1.2.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.1.2...expense-action-v1.2.0) (2024-09-01)
 
 
