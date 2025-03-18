@@ -1371,6 +1371,10 @@ TemplatablePattern.prototype.__set_templated_pattern = function() {
   if (!this._disabled.handlebars) {
     items.push(this.__patterns.handlebars._starting_pattern.source);
   }
+  if (!this._disabled.angular) {
+    // Handlebars ('{{' and '}}') are also special tokens in Angular)
+    items.push(this.__patterns.handlebars._starting_pattern.source);
+  }
   if (!this._disabled.erb) {
     items.push(this.__patterns.erb._starting_pattern.source);
   }
@@ -2817,7 +2821,7 @@ Beautifier.prototype.beautify = function() {
     type: ''
   };
 
-  var last_tag_token = new TagOpenParserToken();
+  var last_tag_token = new TagOpenParserToken(this._options);
 
   var printer = new Printer(this._options, baseIndentString);
   var tokens = new Tokenizer(source_text, this._options).tokenize();
@@ -3140,7 +3144,7 @@ Beautifier.prototype._handle_tag_open = function(printer, raw_token, last_tag_to
   return parser_token;
 };
 
-var TagOpenParserToken = function(parent, raw_token) {
+var TagOpenParserToken = function(options, parent, raw_token) {
   this.parent = parent || null;
   this.text = '';
   this.type = 'TK_TAG_OPEN';
@@ -3207,13 +3211,14 @@ var TagOpenParserToken = function(parent, raw_token) {
     }
 
     // handlebars tags that don't start with # or ^ are single_tags, and so also start and end.
+    // if they start with # or ^, they are still considered single tags if indenting of handlebars is set to false
     this.is_end_tag = this.is_end_tag ||
-      (this.tag_start_char === '{' && (this.text.length < 3 || (/[^#\^]/.test(this.text.charAt(handlebar_starts)))));
+      (this.tag_start_char === '{' && (!options.indent_handlebars || this.text.length < 3 || (/[^#\^]/.test(this.text.charAt(handlebar_starts)))));
   }
 };
 
 Beautifier.prototype._get_tag_open_token = function(raw_token) { //function to get a full tag and parse its type
-  var parser_token = new TagOpenParserToken(this._tag_stack.get_parser_token(), raw_token);
+  var parser_token = new TagOpenParserToken(this._options, this._tag_stack.get_parser_token(), raw_token);
 
   parser_token.alignment_size = this._options.wrap_attributes_indent_size;
 
@@ -3731,6 +3736,7 @@ Tokenizer.prototype._get_next_token = function(previous_token, open_token) { // 
   token = token || this._read_open_handlebars(c, open_token);
   token = token || this._read_attribute(c, previous_token, open_token);
   token = token || this._read_close(c, open_token);
+  token = token || this._read_script_and_style(c, previous_token);
   token = token || this._read_control_flows(c, open_token);
   token = token || this._read_raw_content(c, previous_token, open_token);
   token = token || this._read_content_word(c, open_token);
@@ -3816,8 +3822,8 @@ Tokenizer.prototype._read_open_handlebars = function(c, open_token) {
   var resulting_string = null;
   var token = null;
   if (!open_token || open_token.type === TOKEN.CONTROL_FLOW_OPEN) {
-    if (this._options.indent_handlebars && c === '{' && this._input.peek(1) === '{') {
-      if (this._input.peek(2) === '!') {
+    if ((this._options.templating.includes('angular') || this._options.indent_handlebars) && c === '{' && this._input.peek(1) === '{') {
+      if (this._options.indent_handlebars && this._input.peek(2) === '!') {
         resulting_string = this.__patterns.handlebars_comment.read();
         resulting_string = resulting_string || this.__patterns.handlebars.read();
         token = this._create_token(TOKEN.COMMENT, resulting_string);
@@ -3833,8 +3839,8 @@ Tokenizer.prototype._read_open_handlebars = function(c, open_token) {
 Tokenizer.prototype._read_control_flows = function(c, open_token) {
   var resulting_string = '';
   var token = null;
-  // Only check for control flows if angular templating is set AND indenting is set
-  if (!this._options.templating.includes('angular') || !this._options.indent_handlebars) {
+  // Only check for control flows if angular templating is set
+  if (!this._options.templating.includes('angular')) {
     return token;
   }
 
@@ -3927,7 +3933,6 @@ Tokenizer.prototype._is_content_unformatted = function(tag_name) {
       this._options.unformatted.indexOf(tag_name) !== -1);
 };
 
-
 Tokenizer.prototype._read_raw_content = function(c, previous_token, open_token) { // jshint unused:false
   var resulting_string = '';
   if (open_token && open_token.text[0] === '{') {
@@ -3936,16 +3941,7 @@ Tokenizer.prototype._read_raw_content = function(c, previous_token, open_token) 
     previous_token.opened.text[0] === '<' && previous_token.text[0] !== '/') {
     // ^^ empty tag has no content 
     var tag_name = previous_token.opened.text.substr(1).toLowerCase();
-    if (tag_name === 'script' || tag_name === 'style') {
-      // Script and style tags are allowed to have comments wrapping their content
-      // or just have regular content.
-      var token = this._read_comment_or_cdata(c);
-      if (token) {
-        token.type = TOKEN.TEXT;
-        return token;
-      }
-      resulting_string = this._input.readUntil(new RegExp('</' + tag_name + '[\\n\\r\\t ]*?>', 'ig'));
-    } else if (this._is_content_unformatted(tag_name)) {
+    if (this._is_content_unformatted(tag_name)) {
 
       resulting_string = this._input.readUntil(new RegExp('</' + tag_name + '[\\n\\r\\t ]*?>', 'ig'));
     }
@@ -3955,6 +3951,26 @@ Tokenizer.prototype._read_raw_content = function(c, previous_token, open_token) 
     return this._create_token(TOKEN.TEXT, resulting_string);
   }
 
+  return null;
+};
+
+Tokenizer.prototype._read_script_and_style = function(c, previous_token) { // jshint unused:false 
+  if (previous_token.type === TOKEN.TAG_CLOSE && previous_token.opened.text[0] === '<' && previous_token.text[0] !== '/') {
+    var tag_name = previous_token.opened.text.substr(1).toLowerCase();
+    if (tag_name === 'script' || tag_name === 'style') {
+      // Script and style tags are allowed to have comments wrapping their content
+      // or just have regular content.
+      var token = this._read_comment_or_cdata(c);
+      if (token) {
+        token.type = TOKEN.TEXT;
+        return token;
+      }
+      var resulting_string = this._input.readUntil(new RegExp('</' + tag_name + '[\\n\\r\\t ]*?>', 'ig'));
+      if (resulting_string) {
+        return this._create_token(TOKEN.TEXT, resulting_string);
+      }
+    }
+  }
   return null;
 };
 
@@ -3972,6 +3988,7 @@ Tokenizer.prototype._read_content_word = function(c, open_token) {
   if (resulting_string) {
     return this._create_token(TOKEN.TEXT, resulting_string);
   }
+  return null;
 };
 
 module.exports._ = Tokenizer;
@@ -10899,7 +10916,7 @@ function querying_filter(test, node, recurse = true, limit = Infinity) {
 function find(test, nodes, recurse, limit) {
     const result = [];
     /** Stack of the arrays we are looking at. */
-    const nodeStack = [nodes];
+    const nodeStack = [Array.isArray(nodes) ? nodes : [nodes]];
     /** Stack of the indices within the arrays. */
     const indexStack = [0];
     for (;;) {
@@ -10953,20 +10970,19 @@ function findOneChild(test, nodes) {
  * @returns The first node that passes `test`.
  */
 function querying_findOne(test, nodes, recurse = true) {
-    let elem = null;
-    for (let i = 0; i < nodes.length && !elem; i++) {
-        const node = nodes[i];
-        if (!isTag(node)) {
-            continue;
+    const searchedNodes = Array.isArray(nodes) ? nodes : [nodes];
+    for (let i = 0; i < searchedNodes.length; i++) {
+        const node = searchedNodes[i];
+        if (isTag(node) && test(node)) {
+            return node;
         }
-        else if (test(node)) {
-            elem = node;
-        }
-        else if (recurse && node.children.length > 0) {
-            elem = querying_findOne(test, node.children, true);
+        if (recurse && hasChildren(node) && node.children.length > 0) {
+            const found = querying_findOne(test, node.children, true);
+            if (found)
+                return found;
         }
     }
-    return elem;
+    return null;
 }
 /**
  * Checks if a tree of nodes contains at least one node passing a test.
@@ -10977,8 +10993,8 @@ function querying_findOne(test, nodes, recurse = true) {
  * @returns Whether a tree of nodes contains at least one node passing the test.
  */
 function existsOne(test, nodes) {
-    return nodes.some((checked) => isTag(checked) &&
-        (test(checked) || existsOne(test, checked.children)));
+    return (Array.isArray(nodes) ? nodes : [nodes]).some((node) => (isTag(node) && test(node)) ||
+        (hasChildren(node) && existsOne(test, node.children)));
 }
 /**
  * Search an array of nodes and their children for elements passing a test function.
@@ -10992,7 +11008,7 @@ function existsOne(test, nodes) {
  */
 function findAll(test, nodes) {
     const result = [];
-    const nodeStack = [nodes];
+    const nodeStack = [Array.isArray(nodes) ? nodes : [nodes]];
     const indexStack = [0];
     for (;;) {
         if (indexStack[0] >= nodeStack[0].length) {
@@ -11006,11 +11022,9 @@ function findAll(test, nodes) {
             continue;
         }
         const elem = nodeStack[0][indexStack[0]++];
-        if (!isTag(elem))
-            continue;
-        if (test(elem))
+        if (isTag(elem) && test(elem))
             result.push(elem);
-        if (elem.children.length > 0) {
+        if (hasChildren(elem) && elem.children.length > 0) {
             indexStack.unshift(0);
             nodeStack.unshift(elem.children);
         }
@@ -11142,6 +11156,19 @@ function getElementById(id, nodes, recurse = true) {
  */
 function legacy_getElementsByTagName(tagName, nodes, recurse = true, limit = Infinity) {
     return filter(Checks["tag_name"](tagName), nodes, recurse, limit);
+}
+/**
+ * Returns all nodes with the supplied `className`.
+ *
+ * @category Legacy Query Functions
+ * @param className Class name to search for.
+ * @param nodes Nodes to search through.
+ * @param recurse Also consider child nodes.
+ * @param limit Maximum number of nodes to return.
+ * @returns All nodes with the supplied `className`.
+ */
+function getElementsByClassName(className, nodes, recurse = true, limit = Infinity) {
+    return filter(getAttribCheck("class", className), nodes, recurse, limit);
 }
 /**
  * Returns all nodes with the supplied `type`.

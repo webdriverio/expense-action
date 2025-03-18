@@ -6,7 +6,7 @@ import { send } from 'resend'
 import { addLabels, createComment, get, listCommits } from '@octokit/rest'
 
 import { run, expense } from '../src/main.js'
-import { COMMITS, PULLS } from './__fixtures__/gh.js' assert { type: 'json' }
+import { COMMITS, PULLS } from './__fixtures__/gh.js' with { type: 'json' }
 
 vi.mock('@actions/core', () => ({
     setFailed: vi.fn(),
