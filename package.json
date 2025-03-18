@@ -2,7 +2,7 @@
   "name": "expense-action",
   "author": "Christian Bromann <mail@bromann.dev>",
   "description": "A GitHub Action that enables WebdriverIO TSC members to grant expense requests for contributed PRs to the project.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "homepage": "https://github.com/webdriverio/expense-action",
   "private": true,
