@@ -4,7 +4,12 @@ export default defineConfig({
     test: {
         coverage: {
             enabled: true,
-            exclude: ['src/mail.tsx', 'dist', 'vitest.config.ts', 'eslint.config.mjs'],
+            exclude: [
+                'src/mail.tsx',
+                'dist',
+                'vitest.config.ts',
+                'eslint.config.mjs'
+            ],
             thresholds: {
                 statements: 99,
                 branches: 87,
