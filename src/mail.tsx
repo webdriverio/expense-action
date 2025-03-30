@@ -23,6 +23,7 @@ interface ExpenseEmailProps {
     prNumber: number
     owner: string
     repo: string
+    prTitle: string
     prURL: string
     expenseAmount: number
     secretKey: string
@@ -31,6 +32,7 @@ interface ExpenseEmailProps {
 export const ExpenseEmail = ({
     username,
     prNumber,
+    prTitle,
     prURL,
     owner,
     repo,
@@ -100,8 +102,9 @@ export const ExpenseEmail = ({
                                     "Project Contribution PR {owner}/{repo}#
                                     {prNumber}"
                                 </CodeInline>{' '}
-                                and the pull request title with the current
-                                month month and year in the{' '}
+                                and the pull request title (
+                                <CodeInline>"{prTitle}"</CodeInline>) with the
+                                current month and year in the{' '}
                                 <strong>Expense description</strong>. Set the
                                 date to <strong>{formattedDate}</strong> and the
                                 amount to <strong>${expenseAmount}</strong>.

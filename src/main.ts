@@ -105,6 +105,7 @@ export async function expense(
         commits.data.map(commit => commit.commit.author?.email).filter(Boolean)
     )
     const prAuthorEmail = prAuthors.values().next().value as string
+    const prTitle = pr.data.title
 
     /**
      * Checks if the email address ends up with the Github no reply.
@@ -131,6 +132,7 @@ export async function expense(
             prNumber,
             owner,
             repo,
+            prTitle,
             prURL,
             expenseAmount,
             secretKey
