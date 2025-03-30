@@ -73071,7 +73071,7 @@ const ExpenseEmail = ({ username, prNumber, prURL, owner, repo, expenseAmount, s
                                 "$",
                                 expenseAmount),
                             ". Finally, paste the provided key into the notes section on the last page."),
-                        react.createElement(CodeBlock, { theme: a11yDark, code: secretKey, language: "markdown" }),
+                        react.createElement(CodeBlock, { theme: a11yDark, code: secretKey, language: "markdown", style: { width: 'unset' } }),
                         react.createElement(Text, { className: "text-black text-[14px] leading-[24px]" },
                             "With this key we ensure that the author of the pull request (you) can authenticate this expense, so please don't share it with anyone. Lastly, make sure all your data is correct and click ",
                             react.createElement("strong", null, "Submit expense"),
