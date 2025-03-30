@@ -18,3 +18,17 @@ following steps:
 1. **Pushing the new tag to the remote:** Finally, the script pushes the new tag
    to the remote repository. From here, you will need to create a new release in
    GitHub and users can easily reference the new tag in their workflows.
+
+## Sandbox
+
+To work on the visual part of this project (email template), you can use the
+sandbox with:
+
+```bash
+npm run sandbox
+```
+
+It should open a browser window with the sandbox that contains the email
+template.
+
+You can edit the React props in `sanbox/src/main.tsx`.
