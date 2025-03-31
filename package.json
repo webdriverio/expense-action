@@ -45,7 +45,7 @@
     "resend": "^4.1.2"
   },
   "devDependencies": {
-    "@types/node": "^22.13.11",
+    "@types/node": "^22.13.14",
     "@vercel/ncc": "^0.38.3",
     "@vitest/coverage-v8": "^3.0.9",
     "@wdio/eslint": "^0.0.5",
