@@ -115,6 +115,7 @@ export const ExpenseEmail = ({
                                 theme={a11yDark}
                                 code={secretKey}
                                 language="markdown"
+                                style={{ width: 'unset' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
                                 With this key we ensure that the author of the
