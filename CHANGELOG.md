@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.2.1...expense-action-v1.3.0) (2025-03-31)
+
+
+### Features
+
+* add pr title to email and fix typo ([#141](https://github.com/webdriverio/expense-action/issues/141)) ([ab7617b](https://github.com/webdriverio/expense-action/commit/ab7617bad9271084983faf7d2246e11d163256f7))
+
+
+### Bug Fixes
+
+* code block width overflowing container ([#140](https://github.com/webdriverio/expense-action/issues/140)) ([8e7321c](https://github.com/webdriverio/expense-action/commit/8e7321c694875fecf5cefa082a9eab84120ef914))
+
 ## [1.2.1](https://github.com/webdriverio/expense-action/compare/expense-action-v1.2.0...expense-action-v1.2.1) (2025-03-18)
 
 
