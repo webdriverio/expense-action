@@ -7,8 +7,10 @@ export default defineConfig({
             exclude: [
                 'src/mail.tsx',
                 'dist',
+                'vite.config.ts',
                 'vitest.config.ts',
-                'eslint.config.mjs'
+                'eslint.config.mjs',
+                'sandbox'
             ],
             thresholds: {
                 statements: 99,

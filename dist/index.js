@@ -72999,7 +72999,7 @@ please file a bug https://github.com/resend/react-email/issues/new?assignees=&la
 
 
 
-const ExpenseEmail = ({ username, prNumber, prURL, owner, repo, expenseAmount, secretKey }) => {
+const ExpenseEmail = ({ username, prNumber, prTitle, prURL, owner, repo, expenseAmount, secretKey }) => {
     const previewText = `Thank you for your work on PR #${prNumber}. You are eligible to expense your work.`;
     const date = new Date();
     const formattedDate = `${`${date.getMonth() + 1}`.padStart(2, '0')}/${`${date.getDate()}`.padStart(2, '0')}/${date.getFullYear()}`;
@@ -73061,7 +73061,12 @@ const ExpenseEmail = ({ username, prNumber, prURL, owner, repo, expenseAmount, s
                                 prNumber,
                                 "\""),
                             ' ',
-                            "and the pull request title with the current month month and year in the",
+                            "and the pull request title (",
+                            react.createElement(CodeInline, null,
+                                "\"",
+                                prTitle,
+                                "\""),
+                            ") with the current month and year in the",
                             ' ',
                             react.createElement("strong", null, "Expense description"),
                             ". Set the date to ",
@@ -73187,6 +73192,7 @@ async function expense({ actionRepo, resendAPIKey, githubToken } = {
      */
     const prAuthors = new Set(commits.data.map(commit => commit.commit.author?.email).filter(Boolean));
     const prAuthorEmail = prAuthors.values().next().value;
+    const prTitle = pr.data.title;
     /**
      * Checks if the email address ends up with the Github no reply.
      * There is an issue with GitHub not redirecting emails to the user
@@ -73208,6 +73214,7 @@ async function expense({ actionRepo, resendAPIKey, githubToken } = {
             prNumber,
             owner,
             repo,
+            prTitle,
             prURL,
             expenseAmount,
             secretKey
