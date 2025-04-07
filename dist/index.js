@@ -3412,7 +3412,7 @@ var Prism = (function (_self) {
 				if (typeof document === 'undefined') {
 					return null;
 				}
-				if ('currentScript' in document && 1 < 2 /* hack to trip TS' flow analysis */) {
+				if (document.currentScript && document.currentScript.tagName === 'SCRIPT' && 1 < 2 /* hack to trip TS' flow analysis */) {
 					return /** @type {any} */ (document.currentScript);
 				}
 
@@ -36758,19 +36758,83 @@ var text_dist_objRest = (source, exclude) => {
 // src/text.tsx
 
 
+// src/utils/parse-margins.ts
+function parseMargin({
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft
+}) {
+  let mt = marginTop;
+  let mr = marginRight;
+  let mb = marginBottom;
+  let ml = marginLeft;
+  if (typeof margin === "number") {
+    mt = margin;
+    mr = margin;
+    mb = margin;
+    ml = margin;
+  } else if (typeof margin === "string") {
+    const values = margin.split(/\s+/);
+    switch (values.length) {
+      case 1:
+        mt = values[0];
+        mr = values[0];
+        mb = values[0];
+        ml = values[0];
+        break;
+      case 2:
+        mt = values[0];
+        mb = values[0];
+        mr = values[1];
+        ml = values[1];
+        break;
+      case 3:
+        mt = values[0];
+        mr = values[1];
+        mb = values[2];
+        ml = values[1];
+        break;
+      case 4:
+        mt = values[0];
+        mr = values[1];
+        mb = values[2];
+        ml = values[3];
+        break;
+      default:
+        break;
+    }
+  }
+  return { mt, mr, mb, ml };
+}
+
+// src/text.tsx
+
 var Text = react.forwardRef(
   (_a, ref) => {
     var _b = _a, { style } = _b, props = text_dist_objRest(_b, ["style"]);
+    var _a2, _b2;
+    const margins = parseMargin({
+      margin: style == null ? void 0 : style.margin,
+      marginBottom: (_a2 = style == null ? void 0 : style.marginBottom) != null ? _a2 : "16px",
+      marginTop: (_b2 = style == null ? void 0 : style.marginTop) != null ? _b2 : "16px",
+      marginLeft: style == null ? void 0 : style.marginLeft,
+      marginRight: style == null ? void 0 : style.marginRight
+    });
     return /* @__PURE__ */ (0,jsx_runtime.jsx)(
       "p",
       text_dist_spreadProps(text_dist_spreadValues({}, props), {
         ref,
-        style: text_dist_spreadValues({
+        style: text_dist_spreadProps(text_dist_spreadValues({
           fontSize: "14px",
-          lineHeight: "24px",
-          marginBottom: "16px",
-          marginTop: "16px"
-        }, style)
+          lineHeight: "24px"
+        }, style), {
+          marginBottom: margins.mb,
+          marginTop: margins.mt,
+          marginLeft: margins.ml,
+          marginRight: margins.mr
+        })
       })
     );
   }
@@ -50071,7 +50135,8 @@ var CodeBlockLine = ({
     const styleForToken = code_block_dist_spreadValues(code_block_dist_spreadValues({}, inheritedStyles), stylesForToken(token, theme));
     if (token.content instanceof Prism.Token) {
       return /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: styleForToken, children: /* @__PURE__ */ (0,jsx_runtime.jsx)(CodeBlockLine, { theme, token: token.content }) });
-    } else if (typeof token.content === "string") {
+    }
+    if (typeof token.content === "string") {
       return /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: styleForToken, children: token.content });
     }
     return /* @__PURE__ */ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, { children: token.content.map((subToken, i) => /* @__PURE__ */ (0,jsx_runtime.jsx)(
