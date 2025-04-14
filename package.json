@@ -47,8 +47,8 @@
     "resend": "^4.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@types/react-dom": "^19.1.1",
+    "@types/node": "^22.14.1",
+    "@types/react-dom": "^19.1.2",
     "@vercel/ncc": "^0.38.3",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^3.1.1",
