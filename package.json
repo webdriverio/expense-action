@@ -40,9 +40,9 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@octokit/rest": "^21.1.1",
-    "@react-email/components": "^0.0.36",
+    "@react-email/components": "^0.0.38",
     "@react-email/tailwind": "^1.0.4",
-    "@types/react": "^19.1.0",
+    "@types/react": "^19.1.2",
     "react": "^19.1.0",
     "resend": "^4.2.0"
   },
