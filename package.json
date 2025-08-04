@@ -42,8 +42,8 @@
     "@octokit/rest": "^21.1.1",
     "@react-email/components": "^0.0.38",
     "@react-email/tailwind": "^1.0.4",
-    "@types/react": "^19.1.2",
-    "react": "^19.1.0",
+    "@types/react": "^19.1.9",
+    "react": "^19.1.1",
     "resend": "^4.2.0"
   },
   "devDependencies": {
