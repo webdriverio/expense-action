@@ -44,7 +44,7 @@
     "@react-email/tailwind": "^1.0.4",
     "@types/react": "^19.1.2",
     "react": "^19.1.0",
-    "resend": "^4.2.0"
+    "resend": "^6.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
