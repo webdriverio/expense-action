@@ -105,7 +105,7 @@ export const ExpenseEmail = ({
                                 theme={a11yDark}
                                 code={`${prTitle}, month-year`}
                                 language="markdown"
-                                style={{ width: 'unset' }}
+                                style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
                                 6. Set the date to <strong>{formattedDate}</strong> and the amount to <strong>${expenseAmount}</strong>. Ensure to choose the <strong>USD</strong> currency.<br />
@@ -115,7 +115,7 @@ export const ExpenseEmail = ({
                                 theme={a11yDark}
                                 code={`Project Contribution PR ${owner}/${repo}#${prNumber}`}
                                 language="markdown"
-                                style={{ width: 'unset' }}
+                                style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
                                 8. IMPORTANT: In “Additional notes”, enter the key below.
@@ -124,7 +124,7 @@ export const ExpenseEmail = ({
                                 theme={a11yDark}
                                 code={secretKey}
                                 language="markdown"
-                                style={{ width: 'unset' }}
+                                style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
                                 With this key, we ensure that the author of the
