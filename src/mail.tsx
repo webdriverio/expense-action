@@ -82,8 +82,8 @@ export const ExpenseEmail = ({
                                 </Link>
                                 . This project thrives on the invaluable
                                 involvement of our community, and we would like
-                                to give back to everyone who has taken the time to
-                                improve the project.
+                                to give back to everyone who has taken the time
+                                to improve the project.
                             </Text>
                             <Text className="text-black text-[14px] leading-[24px]">
                                 The reviewer of your pull request has granted
@@ -95,11 +95,21 @@ export const ExpenseEmail = ({
                                 clicking the button below.
                             </Text>
                             <Text className="text-black text-[14px] leading-[24px]">
-                                1. Create an account, enter your address, and select a payment method.<br />
-                                2. Select Invoice.<br />
-                                3. Read and accept the section "Host instructions to submit an invoice", and "Collective instructions to submit an invoice"<br />
-                                4. Choose “No, generate an invoice for me” in the next section<br />
-                                5. For the section “Expense items” in “Item Description”, enter the below and replace month-year with today's month and year:
+                                1. Create an account, enter your address, and
+                                select a payment method.
+                                <br />
+                                2. Select Invoice.
+                                <br />
+                                3. Read and accept the section "Host
+                                instructions to submit an invoice", and
+                                "Collective instructions to submit an invoice"
+                                <br />
+                                4. Choose “No, generate an invoice for me” in
+                                the next section
+                                <br />
+                                5. For the section “Expense items” in “Item
+                                Description”, enter the below and replace
+                                month-year with today's month and year:
                             </Text>
                             <CodeBlock
                                 theme={a11yDark}
@@ -108,8 +118,13 @@ export const ExpenseEmail = ({
                                 style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
-                                6. Set the date to <strong>{formattedDate}</strong> and the amount to <strong>${expenseAmount}</strong>. Ensure to choose the <strong>USD</strong> currency.<br />
-                                7. For the section “Additional details”, enter the following as the title
+                                6. Set the date to{' '}
+                                <strong>{formattedDate}</strong> and the amount
+                                to <strong>${expenseAmount}</strong>. Ensure to
+                                choose the <strong>USD</strong> currency.
+                                <br />
+                                7. For the section “Additional details”, enter
+                                the following as the title
                             </Text>
                             <CodeBlock
                                 theme={a11yDark}
@@ -118,7 +133,8 @@ export const ExpenseEmail = ({
                                 style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
-                                8. IMPORTANT: In “Additional notes”, enter the key below.
+                                8. IMPORTANT: In “Additional notes”, enter the
+                                key below.
                             </Text>
                             <CodeBlock
                                 theme={a11yDark}
@@ -131,9 +147,9 @@ export const ExpenseEmail = ({
                                 pull request (you) can authenticate this
                                 expense. Please don't share it with anyone.
                                 Lastly, make sure all your data is correct and
-                                click Submit expense. Once your expense has
-                                been approved, you will receive the money
-                                within 1-2 weeks.
+                                click Submit expense. Once your expense has been
+                                approved, you will receive the money within 1-2
+                                weeks.
                             </Text>
                             <Section className="text-center mt-[32px] mb-[32px]">
                                 <Button
@@ -141,7 +157,8 @@ export const ExpenseEmail = ({
                                     href={
                                         'https://opencollective.com/webdriverio/expenses/new'
                                     }>
-                                    Submit Expense on OpenCollective (within 30 days)
+                                    Submit Expense on OpenCollective (within 30
+                                    days)
                                 </Button>
                             </Section>
                             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
