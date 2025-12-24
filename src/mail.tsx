@@ -99,11 +99,25 @@ export const ExpenseEmail = ({
                                 2. Select Invoice.<br />
                                 3. Read and accept the section "Host instructions to submit an invoice", and "Collective instructions to submit an invoice"<br />
                                 4. Choose “No, generate an invoice for me” in the next section<br />
-                                5. For the section “Expense items” in “Item Description”, enter the below and replace month-year with today's month and year:<br />
-                                <CodeInline>{prTitle}, month-year</CodeInline><br />
+                                5. For the section “Expense items” in “Item Description”, enter the below and replace month-year with today's month and year:
+                            </Text>
+                            <CodeBlock
+                                theme={a11yDark}
+                                code={`${prTitle}, month-year`}
+                                language="markdown"
+                                style={{ width: 'unset' }}
+                            />
+                            <Text className="text-black text-[14px] leading-[24px]">
                                 6. Set the date to <strong>{formattedDate}</strong> and the amount to <strong>${expenseAmount}</strong>. Ensure to choose the <strong>USD</strong> currency.<br />
-                                7. For the section “Additional details”, enter the following as the title<br />
-                                <CodeInline>Project Contribution PR {owner}/{repo}#{prNumber}</CodeInline><br />
+                                7. For the section “Additional details”, enter the following as the title
+                            </Text>
+                            <CodeBlock
+                                theme={a11yDark}
+                                code={`Project Contribution PR ${owner}/${repo}#${prNumber}`}
+                                language="markdown"
+                                style={{ width: 'unset' }}
+                            />
+                            <Text className="text-black text-[14px] leading-[24px]">
                                 8. IMPORTANT: In “Additional notes”, enter the key below.
                             </Text>
                             <CodeBlock
