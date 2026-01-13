@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/webdriverio/expense-action/compare/expense-action-v1.3.0...expense-action-v1.3.1) (2026-01-13)
+
+
+### Bug Fixes
+
+* **ci:** add pipeline to update dependabot PRs ([4e776d9](https://github.com/webdriverio/expense-action/commit/4e776d9dc64fc559701590e6bdeab9a73d64fd13))
+* expense flow is now in one page ([#180](https://github.com/webdriverio/expense-action/issues/180)) ([1b90fe6](https://github.com/webdriverio/expense-action/commit/1b90fe6b35d168aa8d7390c5e328e59828cda9bd))
+
 ## [1.3.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.2.1...expense-action-v1.3.0) (2025-03-31)
 
 
