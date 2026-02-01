@@ -151,7 +151,14 @@ export const ExpenseEmail = ({
                                 theme={a11yDark}
                                 code={wrapText(secretKey, 65)}
                                 language="markdown"
-                                style={{ width: 'unset', userSelect: 'all' }}
+                                style={{
+                                    width: 'unset',
+                                    userSelect: 'all',
+                                    whiteSpace: 'pre-wrap',
+                                    wordBreak: 'break-all',
+                                    overflowWrap: 'break-word',
+                                    maxWidth: '100%'
+                                }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
                                 This key is a secure verification token that
