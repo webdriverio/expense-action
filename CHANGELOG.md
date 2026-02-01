@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.4.0](https://github.com/webdriverio/expense-action/compare/expense-action-v1.3.1...expense-action-v1.4.0) (2026-02-01)
+
+
+### Features
+
+* implement JWT authentication and GitHub Labels ([#182](https://github.com/webdriverio/expense-action/issues/182)) ([7d73702](https://github.com/webdriverio/expense-action/commit/7d73702f19e1dd12e253de06dc619d434525b217))
+
+
+### Bug Fixes
+
+* email style ([#184](https://github.com/webdriverio/expense-action/issues/184)) ([49120e1](https://github.com/webdriverio/expense-action/commit/49120e1c51ebaeecf561e3ba2328d5c078523181))
+* set EXPENSE_SIGNING_SECRET ([37dc669](https://github.com/webdriverio/expense-action/commit/37dc66924e07318a2ba7bb823832dfd37ada8b8a))
+* try with space ([#185](https://github.com/webdriverio/expense-action/issues/185)) ([da729c7](https://github.com/webdriverio/expense-action/commit/da729c71ac76ce84bd6652afd5925561c25b1bb1))
+* wrap text ([#183](https://github.com/webdriverio/expense-action/issues/183)) ([38a8bdc](https://github.com/webdriverio/expense-action/commit/38a8bdca6983e062b8a71659355bfbe95c2b6889))
+
 ## [1.3.1](https://github.com/webdriverio/expense-action/compare/expense-action-v1.3.0...expense-action-v1.3.1) (2026-01-13)
 
 
