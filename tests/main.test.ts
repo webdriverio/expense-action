@@ -10,7 +10,8 @@ import { COMMITS, PULLS } from './__fixtures__/gh.js' with { type: 'json' }
 
 // Set up test environment for JWT signing
 beforeAll(() => {
-    process.env.EXPENSE_SIGNING_SECRET = 'test-secret-for-jwt-signing-do-not-use-in-prod'
+    process.env.EXPENSE_SIGNING_SECRET =
+        'test-secret-for-jwt-signing-do-not-use-in-prod'
 })
 
 vi.mock('@actions/core', () => ({
@@ -94,7 +95,7 @@ describe('expense', () => {
             actionRepo: 'webdriverio/webdriverio'
         })
         expect(send).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {
@@ -118,7 +119,7 @@ describe('expense', () => {
           }
         `)
         expect(createComment).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {
@@ -148,7 +149,7 @@ describe('expense', () => {
           }
         `)
         expect(addLabels).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {
@@ -182,7 +183,7 @@ describe('expense', () => {
             actionRepo: 'webdriverio/webdriverio'
         })
         expect(createComment).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {

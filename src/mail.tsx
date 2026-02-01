@@ -143,12 +143,13 @@ export const ExpenseEmail = ({
                                 style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
-                                This key is a secure verification token that proves
-                                you are the author of PR #{prNumber}. It is unique to
-                                your contribution and expires in 30 days. Please don't
-                                share it with anyone. Make sure all your data is correct
-                                and click Submit expense. Once your expense has been
-                                approved, you will receive the money within 1-2 weeks.
+                                This key is a secure verification token that
+                                proves you are the author of PR #{prNumber}. It
+                                is unique to your contribution and expires in 30
+                                days. Please don't share it with anyone. Make
+                                sure all your data is correct and click Submit
+                                expense. Once your expense has been approved,
+                                you will receive the money within 1-2 weeks.
                             </Text>
                             <Section className="text-center mt-[32px] mb-[32px]">
                                 <Button

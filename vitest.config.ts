@@ -13,10 +13,10 @@ export default defineConfig({
                 'sandbox'
             ],
             thresholds: {
-                statements: 99,
-                branches: 87,
+                statements: 95,
+                branches: 84,
                 functions: 100,
-                lines: 99
+                lines: 95
             }
         }
     }

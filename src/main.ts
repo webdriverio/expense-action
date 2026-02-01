@@ -17,7 +17,9 @@ import type { ExpenseJWTPayload } from './types.js'
  * Generate a JWT-based expense key containing all verification data
  * The key is self-validating and doesn't require external storage
  */
-function generateExpenseKey(payload: Omit<ExpenseJWTPayload, 'iat' | 'exp'>): string {
+function generateExpenseKey(
+    payload: Omit<ExpenseJWTPayload, 'iat' | 'exp'>
+): string {
     const signingSecret = process.env.EXPENSE_SIGNING_SECRET
     if (!signingSecret) {
         throw new Error(
