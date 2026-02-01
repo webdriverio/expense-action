@@ -154,7 +154,7 @@ export const ExpenseEmail = ({
                                 style={{ width: '100px', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
-                                !!!This key is a secure verification token that
+                                This key is a secure verification token that
                                 proves you are the author of PR #{prNumber}. It
                                 is unique to your contribution and expires in 30
                                 days. Please don't share it with anyone. Make
