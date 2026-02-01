@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, vi, beforeAll } from 'vitest'
 import { setFailed } from '@actions/core'
 // @ts-expect-error mock feature
 import { send } from 'resend'
@@ -7,6 +7,12 @@ import { addLabels, createComment, get, listCommits } from '@octokit/rest'
 
 import { run, expense } from '../src/main.js'
 import { COMMITS, PULLS } from './__fixtures__/gh.js' with { type: 'json' }
+
+// Set up test environment for JWT signing
+beforeAll(() => {
+    process.env.EXPENSE_SIGNING_SECRET =
+        'test-secret-for-jwt-signing-do-not-use-in-prod'
+})
 
 vi.mock('@actions/core', () => ({
     setFailed: vi.fn(),
@@ -89,7 +95,7 @@ describe('expense', () => {
             actionRepo: 'webdriverio/webdriverio'
         })
         expect(send).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {
@@ -113,7 +119,7 @@ describe('expense', () => {
           }
         `)
         expect(createComment).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {
@@ -143,7 +149,7 @@ describe('expense', () => {
           }
         `)
         expect(addLabels).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {
@@ -177,7 +183,7 @@ describe('expense', () => {
             actionRepo: 'webdriverio/webdriverio'
         })
         expect(createComment).toMatchInlineSnapshot(`
-          [MockFunction spy] {
+          [MockFunction] {
             "calls": [
               [
                 {

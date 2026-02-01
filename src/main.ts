@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import crypto from 'node:crypto'
+import jwt from 'jsonwebtoken'
 import { Resend } from 'resend'
 import { Octokit } from '@octokit/rest'
 
@@ -11,12 +11,30 @@ import {
     FROM as from,
     BCC as bcc
 } from './constants.js'
+import type { ExpenseJWTPayload } from './types.js'
 
 /**
- * create a authentication key for contributor
+ * Generate a JWT-based expense key containing all verification data
+ * The key is self-validating and doesn't require external storage
  */
-const randomString = crypto.randomUUID()
-const secretKey = crypto.createHash('sha256').update(randomString).digest('hex')
+function generateExpenseKey(
+    payload: Omit<ExpenseJWTPayload, 'iat' | 'exp'>
+): string {
+    const signingSecret = process.env.EXPENSE_SIGNING_SECRET
+    if (!signingSecret) {
+        throw new Error(
+            'Please export an "EXPENSE_SIGNING_SECRET" into the environment for JWT signing.'
+        )
+    }
+
+    const jwtPayload: ExpenseJWTPayload = {
+        ...payload,
+        iat: Math.floor(Date.now() / 1000),
+        exp: Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60 // 30 days
+    }
+
+    return jwt.sign(jwtPayload, signingSecret)
+}
 
 /**
  * The main function for the action.
@@ -118,6 +136,17 @@ export async function expense(
 
     console.log(`Send expense email to ${prAuthorEmail} for PR #${prNumber}`)
     console.log(`Amount to be expensed: $${expenseAmount}`)
+
+    /**
+     * Generate JWT-based expense key with all verification data embedded
+     */
+    const secretKey = generateExpenseKey({
+        owner,
+        repo,
+        prNumber,
+        amount: expenseAmount,
+        email: prAuthorEmail
+    })
 
     const resend = new Resend(resendAPIKey)
     const subject = 'Thank you for contributing to WebdriverIO!'
