@@ -26,7 +26,7 @@ function wrapText(text: string, n: number): string {
     for (let i = 0; i < text.length; i += n) {
         lines.push(text.slice(i, i + n))
     }
-    return lines.join(' ')
+    return lines.join('\n')
 }
 
 interface ExpenseEmailProps {
@@ -151,7 +151,7 @@ export const ExpenseEmail = ({
                                 theme={a11yDark}
                                 code={wrapText(secretKey, 65)}
                                 language="markdown"
-                                style={{ width: '100px', userSelect: 'all' }}
+                                style={{ width: 'unset', userSelect: 'all' }}
                             />
                             <Text className="text-black text-[14px] leading-[24px]">
                                 This key is a secure verification token that
