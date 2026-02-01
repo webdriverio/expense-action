@@ -18,6 +18,17 @@ import {
 import { Tailwind } from '@react-email/tailwind'
 import * as React from 'react'
 
+/**
+ * Wraps a string by inserting newlines every `n` characters
+ */
+function wrapText(text: string, n: number): string {
+    const lines: string[] = []
+    for (let i = 0; i < text.length; i += n) {
+        lines.push(text.slice(i, i + n))
+    }
+    return lines.join('\n')
+}
+
 interface ExpenseEmailProps {
     username: string
     prNumber: number
@@ -138,7 +149,7 @@ export const ExpenseEmail = ({
                             </Text>
                             <CodeBlock
                                 theme={a11yDark}
-                                code={secretKey}
+                                code={wrapText(secretKey, 65)}
                                 language="markdown"
                                 style={{ width: 'unset', userSelect: 'all' }}
                             />
