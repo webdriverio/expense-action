@@ -17,7 +17,7 @@ import type { ExpenseJWTPayload } from './types.js'
  * Generate a JWT-based expense key containing all verification data
  * The key is self-validating and doesn't require external storage
  */
-function generateExpenseKey(
+export function generateExpenseKey(
     payload: Omit<ExpenseJWTPayload, 'iat' | 'exp'>
 ): string {
     const signingSecret = process.env.EXPENSE_SIGNING_SECRET
@@ -30,7 +30,8 @@ function generateExpenseKey(
     const jwtPayload: ExpenseJWTPayload = {
         ...payload,
         iat: Math.floor(Date.now() / 1000),
-        exp: Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60 // 30 days
+        // extend expiration to 90 days (previously 30)
+        exp: Math.floor(Date.now() / 1000) + 90 * 24 * 60 * 60 // 90 days
     }
 
     return jwt.sign(jwtPayload, signingSecret)

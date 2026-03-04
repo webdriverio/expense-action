@@ -5,13 +5,30 @@ import { send } from 'resend'
 // @ts-expect-error mock feature
 import { addLabels, createComment, get, listCommits } from '@octokit/rest'
 
-import { run, expense } from '../src/main.js'
+import { run, expense, generateExpenseKey } from '../src/main.js'
 import { COMMITS, PULLS } from './__fixtures__/gh.js' with { type: 'json' }
 
 // Set up test environment for JWT signing
 beforeAll(() => {
     process.env.EXPENSE_SIGNING_SECRET =
         'test-secret-for-jwt-signing-do-not-use-in-prod'
+})
+
+it('generates JWT tokens that expire in ~90 days', () => {
+    const payload = {
+        owner: 'foo',
+        repo: 'bar',
+        prNumber: 1,
+        amount: 100,
+        email: 'test@example.com'
+    }
+
+    const token = generateExpenseKey(payload as any)
+    // decode without verifying since we only care about the payload
+    const decoded: any = require('jsonwebtoken').decode(token)
+    const expectedExp = Math.floor(Date.now() / 1000) + 90 * 24 * 60 * 60
+    // allow a small drift (a few seconds)
+    expect(Math.abs(decoded.exp - expectedExp)).toBeLessThan(10)
 })
 
 vi.mock('@actions/core', () => ({
