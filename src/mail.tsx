@@ -156,7 +156,7 @@ export const ExpenseEmail = ({
                             <Text className="text-black text-[14px] leading-[24px]">
                                 This key is a secure verification token that
                                 proves you are the author of PR #{prNumber}. It
-                                is unique to your contribution and expires in 30
+                                is unique to your contribution and expires in 90
                                 days. Please don't share it with anyone. Make
                                 sure all your data is correct and click Submit
                                 expense. Once your expense has been approved,
@@ -168,14 +168,14 @@ export const ExpenseEmail = ({
                                     href={
                                         'https://opencollective.com/webdriverio/expenses/new'
                                     }>
-                                    Submit Expense on OpenCollective (within 30
+                                    Submit Expense on OpenCollective (within 90
                                     days)
                                 </Button>
                             </Section>
                             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
                             <Text className="text-[#666666] text-[12px] leading-[24px]">
                                 Your are eligible to expense your work within
-                                the next <strong>30 days</strong>. If you have
+                                the next <strong>90 days</strong>. If you have
                                 any questions, please reply to this email. You
                                 can find more information about our expense
                                 policy in our{' '}

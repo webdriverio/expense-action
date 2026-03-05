@@ -15,7 +15,7 @@ After triggering the workflow providing a pull request number and the expansible
 
 ![Example Email](.github/assets/example.png)
 
-The receiver can use the code to expense their contribution given the granted amount and by providing the code from the email.
+The receiver can use the code to expense their contribution given the granted amount and by providing the code from the email. The token included in the email is valid for 90 days, after which it expires and cannot be used.
 
 ## Usage
 
