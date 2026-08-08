@@ -56,6 +56,9 @@ export const ExpenseEmail = ({
         2,
         '0'
     )}/${`${date.getDate()}`.padStart(2, '0')}/${date.getFullYear()}`
+    const monthYear = `${date.toLocaleString('en-US', {
+        month: 'long'
+    })} ${date.getFullYear()}`
     return (
         <Html>
             <Head />
@@ -119,12 +122,11 @@ export const ExpenseEmail = ({
                                 the next section
                                 <br />
                                 5. For the section “Expense items” in “Item
-                                Description”, enter the below and replace
-                                month-year with today's month and year:
+                                Description”, enter the following:
                             </Text>
                             <CodeBlock
                                 theme={a11yDark}
-                                code={`${prTitle}, month-year`}
+                                code={`${prTitle}, ${monthYear}`}
                                 language="markdown"
                                 style={{ width: 'unset', userSelect: 'all' }}
                             />

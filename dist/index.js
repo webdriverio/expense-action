@@ -124763,6 +124763,9 @@ const ExpenseEmail = ({ username, prNumber, prTitle, prURL, owner, repo, expense
     const previewText = `Thank you for your work on PR #${prNumber}. You are eligible to expense your work.`;
     const date = new Date();
     const formattedDate = `${`${date.getMonth() + 1}`.padStart(2, '0')}/${`${date.getDate()}`.padStart(2, '0')}/${date.getFullYear()}`;
+    const monthYear = `${date.toLocaleString('en-US', {
+        month: 'long'
+    })} ${date.getFullYear()}`;
     return (react.createElement(Html, null,
         react.createElement(Head, null),
         react.createElement(Preview, null, previewText),
@@ -124811,8 +124814,8 @@ const ExpenseEmail = ({ username, prNumber, prTitle, prURL, owner, repo, expense
                             react.createElement("br", null),
                             "4. Choose \u201CNo, generate an invoice for me\u201D in the next section",
                             react.createElement("br", null),
-                            "5. For the section \u201CExpense items\u201D in \u201CItem Description\u201D, enter the below and replace month-year with today's month and year:"),
-                        react.createElement(CodeBlock, { theme: a11yDark, code: `${prTitle}, month-year`, language: "markdown", style: { width: 'unset', userSelect: 'all' } }),
+                            "5. For the section \u201CExpense items\u201D in \u201CItem Description\u201D, enter the following:"),
+                        react.createElement(CodeBlock, { theme: a11yDark, code: `${prTitle}, ${monthYear}`, language: "markdown", style: { width: 'unset', userSelect: 'all' } }),
                         react.createElement(Text, { className: "text-black text-[14px] leading-[24px]" },
                             "6. Set the date to",
                             ' ',
